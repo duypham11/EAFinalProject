@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+							http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+<!-- Flow level variable definition SO flow scope -->
+	<var name="orderDelivery" class="mum.edu.domain.OrderDelivery" />
+	<var name="rider" class="mum.edu.domain.Rider" />
+	<var name="riders" class="java.util.ArrayList" />
+
+<!-- First "state" listed is first executed - unless <on-start> -->
+	<on-start>
+		<evaluate expression="orderDeliveryControllerHelper.initiate()" result="orderDelivery" />
+	</on-start>
+	
+	<view-state id="collectCustomerInfo" view="collectCustomerInfo.jsp" model="orderDelivery">
+		<transition on="customerInfoCollected" to="processAvailableRider" />
+		<transition on="cancel" to="cancelOrderDelivery" validate="false"/>
+	</view-state>
+	
+	<action-state id="processAvailableRider">
+		<evaluate expression="orderDeliveryControllerHelper.getAvailableRider()" result="rider"/>
+		<transition to="collectRiderDetail" />
+	</action-state>
+
+	<view-state id="collectRiderDetail" model="orderDelivery">
+		<transition on="backToCollectCustomerInfo" to="collectCustomerInfo" />
+		<transition on="cancel" to="cancelOrderDelivery" validate="false"/>
+		<transition on="riderDetailCollected" to="processSelectRider" />
+	</view-state>
+	
+	<action-state id="processSelectRider">
+		<evaluate expression="orderDeliveryControllerHelper.saveOrderDelivery(orderDelivery, rider)" result="orderDelivery"/>
+		<transition to="processNotification" />
+	</action-state>
+	
+	<action-state id="processNotification">
+		<evaluate expression="orderDeliveryControllerHelper.sendOutNotifcation(orderDelivery,rider)"/>
+		<transition to="thankRestaurant" />
+	</action-state>
+	
+	<view-state id="thankRestaurant" model="orderDelivery">
+		<transition to="endState"/>
+	</view-state>
+	
+	<end-state id="cancelOrderDelivery" view="orderDeliveryCancelled.jsp"/>
+
+	<end-state id="endState"/>	
+	
+	<global-transitions>
+		<transition on="cancel" to="cancelOrderDelivery" />
+	</global-transitions>
+
+</flow>

@@ -35,7 +35,7 @@ public class Store implements Serializable {
 	@Size(min = 2, max = 50, message = "{Size.lastName.validation}")
 	private String lastName;
  	
-	@ElementCollection
+	//@ElementCollection
 	private Address address;
 	
 	@Email

@@ -38,13 +38,13 @@ public class Rider implements Serializable{
 	@Email(message="Please provide a valid email address")
 	private String email;
 	
-	@ElementCollection
+	//@ElementCollection
 	Address address;
 	
-	@ElementCollection
+	//@ElementCollection
 	Rate rate;
 	
-	@ElementCollection
+	//@ElementCollection
 	List<String> favZipCode;
 	
 	

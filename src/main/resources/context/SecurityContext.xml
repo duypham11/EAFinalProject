@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<security:global-method-security pre-post-annotations="enabled" />
+	<security:http use-expressions="true">
+		
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/index" access="permitAll" />
+		<security:intercept-url pattern="/login" access="permitAll" />
+
+			
+		<security:form-login login-page="/login"
+			login-processing-url="/postLogin" username-parameter="username" 
+			password-parameter="password" 
+			authentication-success-handler-ref="authSuccessHandler"
+			authentication-failure-url="/loginfailed" />
+		
+		<security:logout 
+			logout-success-url="/logout" delete-cookies="JSESSIONID" logout-url="/doLogout" />
+		
+		<security:remember-me data-source-ref="dataSource"
+			token-validity-seconds="86400" remember-me-parameter="keepMe" />
+		
+		<security:csrf disabled="true" />
+	</security:http>
+		
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider>
+			<!-- disable for testing, or else cannot see/user password -->
+			<!-- <security:password-encoder ref="passwordEncoder" /> -->
+			
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select username,password,enabled from Username where username=?"
+				authorities-by-username-query="select u.username, r.role from Username u, Role r where u.username = r.username and u.username =?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<bean id="authSuccessHandler" class="cs544.mum.edu.handler.AuthSuccessHandler" />
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	</bean>
+</beans>
