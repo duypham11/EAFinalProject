@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 public class Rider implements Serializable{
@@ -33,5 +34,6 @@ public class Rider implements Serializable{
 	@Email(message="Please provide a valid email address")
 	private String email;
 	
-	List<String> phoneNumbers;
+	@ElementCollection
+	Address add;
 }
