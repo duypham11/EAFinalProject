@@ -3,6 +3,7 @@ package cs544.mum.edu.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,11 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-
 
 @Entity 
 public class Store implements Serializable {
@@ -34,7 +35,8 @@ public class Store implements Serializable {
 	@Size(min = 2, max = 50, message = "{Size.lastName.validation}")
 	private String lastName;
  	
-	private String address;
+	@ElementCollection
+	private Address address;
 	
 	@Email
 	@NotEmpty
@@ -42,7 +44,6 @@ public class Store implements Serializable {
 	
 	@NotEmpty(message = "Please put something here")
 	private String note;
-	private String phone;
 	
 
 	@OneToOne(fetch=FetchType.EAGER) 
@@ -83,12 +84,7 @@ public class Store implements Serializable {
 	public void setUserCredentials(Username userCredentials) {
 		this.userCredentials = userCredentials;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -102,12 +98,13 @@ public class Store implements Serializable {
 		this.note = note;
 	}
 
-	public String getPhone() {
-		return phone;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
+
 	
   }

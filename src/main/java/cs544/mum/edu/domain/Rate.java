@@ -21,7 +21,7 @@ public class Rate {
 	public float getRate() {
 		return rate;
 	}
-	//rate = 0-10
+	//rate: 0-10
 	public float rate(int rate) {		
 		this.rate = ((this.rate * count) + rate)/(count+1);
 		count++;
