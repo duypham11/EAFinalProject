@@ -1,4 +1,4 @@
-package cs544.mum.edu;
+package cs544.mum.edu.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
