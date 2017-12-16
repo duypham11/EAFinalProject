@@ -30,6 +30,7 @@
 <script src="<spring:url value='/bootstrap/vendor/metisMenu/metisMenu.min.js'/>"></script>
 <!-- Custom Theme JavaScript -->
 <script src="<spring:url value='/bootstrap/dist/js/sb-admin-2.js'/>"></script>
+<script type="text/javascript" src="<spring:url value="/resources/js/ajax.js"/>"></script>
 
 </head>
 
@@ -128,8 +129,8 @@
                                   <input class="form-control" type="text" id="id">
                               </div>
                          	<div class="form-group">
-                                  <label>Restaurant Name :</label>
-                                  <input class="form-control" type="text" id="restaurantName">
+                                  <label>Store Name :</label>
+                                  <input class="form-control" type="text" id="storeName">
                               </div>
                               <div class="form-group">
                                   <label>Owner First Name :</label>
