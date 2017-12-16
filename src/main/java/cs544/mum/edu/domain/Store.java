@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class Store implements Serializable {
 	@Size(min = 2, max = 50, message = "{Size.lastName.validation}")
 	private String lastName;
  	
-	//@ElementCollection
+	@Embedded
 	private Address address;
 	
 	@Email

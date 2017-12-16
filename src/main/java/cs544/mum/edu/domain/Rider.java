@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,14 +39,14 @@ public class Rider implements Serializable{
 	@Email(message="Please provide a valid email address")
 	private String email;
 	
-	//@ElementCollection
-	Address address;
+	@Embedded
+	private Address address;
 	
-	//@ElementCollection
-	Rate rate;
+	@Embedded
+	private Rate rate;
 	
-	//@ElementCollection
-	List<String> favZipCode;
+	@ElementCollection
+	private List<String> favZipCode;
 	
 	
 	public Rider(String firstName, String lastName, String email, Address address) {

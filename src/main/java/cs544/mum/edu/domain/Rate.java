@@ -1,5 +1,9 @@
 package cs544.mum.edu.domain;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+
+@Embeddable
 public class Rate {
 	int count;
 	float rate;
