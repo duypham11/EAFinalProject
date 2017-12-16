@@ -49,7 +49,7 @@ public class Store implements Serializable {
 	private String note;
 	
 
-	@OneToOne(fetch=FetchType.EAGER) 
+	@OneToOne(fetch=FetchType.LAZY) 
  	@JoinColumn(name="username") 
  	Username userCredentials;
 	

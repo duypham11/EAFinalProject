@@ -56,6 +56,8 @@ public class Rider implements Serializable{
  	@JoinColumn(name="username") 
  	Username userCredentials;
 	
+	public Rider() {}
+	
 	public String getPhotoURL() {
 		return photoURL;
 	}
