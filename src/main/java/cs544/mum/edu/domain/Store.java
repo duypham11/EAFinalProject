@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
 
 import javax.validation.constraints.Size;
@@ -36,7 +37,12 @@ public class Store implements Serializable {
 	@Size(min = 2, max = 50, message = "{Size.lastName.validation}")
 	private String lastName;
  	
+<<<<<<< HEAD
 	@Embedded
+=======
+	@OneToOne
+	@JoinColumn(name="store_id")
+>>>>>>> 3b80cff9d3c62f959c8fafe6add0f081354f2c0c
 	private Address address;
 	
 	@Email
@@ -105,6 +111,10 @@ public class Store implements Serializable {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	

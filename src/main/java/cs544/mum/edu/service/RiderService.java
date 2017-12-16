@@ -2,7 +2,7 @@ package cs544.mum.edu.service;
 
 import cs544.mum.edu.domain.Rider;
 
-public interface IRiderService {
+public interface RiderService {
 	void createRider(Rider rider);
 	Rider getRider(long id);
 	Iterable<Rider> getAllRider();

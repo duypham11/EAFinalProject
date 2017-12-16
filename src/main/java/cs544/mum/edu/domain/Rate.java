@@ -1,10 +1,22 @@
 package cs544.mum.edu.domain;
 
 import javax.persistence.Embeddable;
+<<<<<<< HEAD
 import javax.persistence.Embedded;
 
 @Embeddable
+=======
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+>>>>>>> 3b80cff9d3c62f959c8fafe6add0f081354f2c0c
 public class Rate {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	long id;
 	int count;
 	float rate;
 	
@@ -30,5 +42,8 @@ public class Rate {
 		this.rate = ((this.rate * count) + rate)/(count+1);
 		count++;
 		return this.rate;		
+	}
+	public void setRate(float rate) {
+		this.rate = rate;
 	}
 }

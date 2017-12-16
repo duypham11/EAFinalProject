@@ -16,9 +16,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.hibernate.validator.constraints.Email;
+import cs544.mum.edu.domain.Rider;
 
 @Entity
-public class Package implements Serializable{
+public class Parcel implements Serializable{
 
 	private static final long serialVersionUID = -3560539622417210365L;
 	
@@ -40,7 +41,7 @@ public class Package implements Serializable{
 	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@ManyToOne
 	@JoinColumn(name = "status_id") 
-	private PackageStatus status;
+	private ParcelStatus status;
 		
 	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@ManyToOne
@@ -49,7 +50,7 @@ public class Package implements Serializable{
 	
 	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@ManyToOne
-	@JoinColumn(name = "rider_id") 
+	@JoinColumn(name = "rider_Id") 
 	private Rider rider;
 
 	public Long getId() {
@@ -84,11 +85,11 @@ public class Package implements Serializable{
 		this.rider = rider;
 	}
 
-	public PackageStatus getStatus() {
+	public ParcelStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(PackageStatus status) {
+	public void setStatus(ParcelStatus status) {
 		this.status = status;
 	}
 
