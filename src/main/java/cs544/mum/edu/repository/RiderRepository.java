@@ -1,10 +1,17 @@
 package cs544.mum.edu.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import cs544.mum.edu.domain.Rider;
 
 public interface RiderRepository extends CrudRepository <Rider, Long> {
 
-	//List<Rider> findRiderByZipCode(String zipCode);
+	List<Rider> findRiderByfavZipCode(String zipCode);
+	List<Rider> findRiderByAddressPhone(String phoneNumber);
+	List<Rider> findRiderByEmail(String email);
+	List<Rider> findRiderByFirstName(String firstName);
+
+
 }

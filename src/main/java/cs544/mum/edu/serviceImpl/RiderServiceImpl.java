@@ -44,15 +44,23 @@ public class RiderServiceImpl implements RiderService{
 	}
 
 	@Override
-	public Rider findRiderByPhone(String phoneNumber) {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Rider> findRiderByPhone(String phoneNumber) {
+		return riderRepository.findRiderByAddressPhone(phoneNumber);
 	}
 
 	@Override
-	public Iterable<Rider> findRidersByZipCode(String zipcode) {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Rider> findRidersByFavZipCode(String zipCode) {
+		return riderRepository.findRiderByfavZipCode(zipCode);
+	}
+
+	@Override
+	public Iterable<Rider> findRiderByEmail(String email) {
+		return riderRepository.findRiderByEmail(email);
+	}
+
+	@Override
+	public Iterable<Rider> findRiderByFirstName(String firstName) {
+		return riderRepository.findRiderByFirstName(firstName);
 	}
 
 }

@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,12 +49,54 @@ public class Rider implements Serializable{
 	@Embedded
 	private Address address;
 	
+	
+	private String photoURL;
+	
+	@OneToOne(fetch=FetchType.EAGER) 
+ 	@JoinColumn(name="username") 
+ 	Username userCredentials;
+	
+	public String getPhotoURL() {
+		return photoURL;
+	}
+
+	public void setPhotoURL(String photoURL) {
+		this.photoURL = photoURL;
+	}
+
+	public Username getUserCredentials() {
+		return userCredentials;
+	}
+
+	public void setUserCredentials(Username userCredentials) {
+		this.userCredentials = userCredentials;
+	}
+
+	public List<Parcel> getParcelList() {
+		return parcelList;
+	}
+
+	public void setParcelList(List<Parcel> parcelList) {
+		this.parcelList = parcelList;
+	}
+
+	public void addParcel(Parcel parcel) {
+		this.parcelList.add(parcel);
+	}
+	
+	public void removeParcel(Parcel parcel) {
+		if (this.parcelList.isEmpty()||this.parcelList.indexOf(parcel)<0)
+			return;
+		this.parcelList.remove(parcel);
+	}
 	@Embedded
 	private Rate rate;
 	
 	@ElementCollection
 	private List<String> favZipCode;
 
+	@OneToMany(mappedBy = "rider")
+	private List<Parcel> parcelList;
 	
 	public Rider(String firstName, String lastName, String email, Address address) {
 		this.firstName = firstName;

@@ -9,6 +9,9 @@ public interface RiderService {
 	void updateRider(Rider rider);
 	void deleteRider(long id);
 	void deleteRider(Rider rider);
-	Rider findRiderByPhone(String phoneNumber);
-	Iterable<Rider> findRidersByZipCode(String zipcode);
+	Iterable<Rider> findRiderByPhone(String phoneNumber);
+	Iterable<Rider> findRidersByFavZipCode(String zipcode);
+	Iterable<Rider> findRiderByEmail(String email);
+	Iterable<Rider> findRiderByFirstName(String firstName);
+
 }

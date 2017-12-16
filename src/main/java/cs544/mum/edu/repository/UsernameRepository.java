@@ -14,8 +14,8 @@ import cs544.mum.edu.domain.Username;
 @Repository
 public interface UsernameRepository extends CrudRepository<Username,String> {
   
-	@Query("SELECT u from Username u WHERE u.username = :username")
-	public Username findByUsername(@Param("username")String username);
+	//@Query("SELECT u from Username u WHERE u.username = :username")
+	Username findByusername(/*@Param("username")*/String username);
 	@Modifying
 	@Transactional
 	@Query("UPDATE Username c SET c.enabled = 0 WHERE c.username=:username")

@@ -45,8 +45,8 @@ public class Parcel implements Serializable{
 		
 	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@ManyToOne
-	@JoinColumn(name = "restaurant_id") 
-	private Store restaurant;
+	@JoinColumn(name = "store_id") 
+	private Store store;
 	
 	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@ManyToOne
@@ -69,12 +69,12 @@ public class Parcel implements Serializable{
 		this.address = address;
 	}
 
-	public Store getRestaurant() {
-		return restaurant;
+	public Store getStore() {
+		return store;
 	}
 
-	public void setRestaurant(Store restaurant) {
-		this.restaurant = restaurant;
+	public void setStore(Store store) {
+		this.store = store;
 	}
 
 	public Rider getRider() {
