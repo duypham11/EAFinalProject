@@ -7,13 +7,14 @@
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/layoutTemplate.jsp">
 		<put-attribute name="title" value="Sample Title" />
 	</definition>
-
-	<definition name="riderBaseLayout" template="/WEB-INF/tiles/template/riderTemplate.jsp">
+	<definition name="riderLayout" template="/WEB-INF/tiles/template/riderTemplate.jsp">
 		<put-attribute name="title" value="Rider" />
 	</definition>
-	
 	<definition name="loginLayout" template="/WEB-INF/tiles/template/loginTemplate.jsp">
 		<put-attribute name="title" value="Login" />
+	</definition>
+	<definition name="storeLayout" template="/WEB-INF/tiles/template/storeTemplate.jsp">
+		<put-attribute name="title" value="Store" />
 	</definition>
 	 	
 </tiles-definitions>

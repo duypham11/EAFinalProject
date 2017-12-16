@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<spring:url value='/rider'/>">Rider</a>
+                <a class="navbar-brand" href="<spring:url value='/store'/>">Store</a>
             </div>
             <!-- /.navbar-header -->
 

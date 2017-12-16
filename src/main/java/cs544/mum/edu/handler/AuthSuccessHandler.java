@@ -17,11 +17,11 @@ public class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHa
 
         String redirectUrl = "/login";
         if(role.contains("ROLE_ADMIN")) {
-        		redirectUrl = "/admin1";
+        		redirectUrl = "/admin";
         } else if(role.contains("ROLE_STORE")) {
-        		redirectUrl = "/restaurant";
+        		redirectUrl = "/store";
         } else if (role.contains("ROLE_RIDER")) {
-        		redirectUrl = "/riderHome";
+        		redirectUrl = "/rider";
         }
         return redirectUrl;
     }
