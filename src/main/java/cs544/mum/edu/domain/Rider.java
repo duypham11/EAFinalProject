@@ -3,16 +3,21 @@ package cs544.mum.edu.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Rider implements Serializable{
@@ -38,14 +43,17 @@ public class Rider implements Serializable{
 	@Email(message="Please provide a valid email address")
 	private String email;
 	
-	//@ElementCollection
-	Address address;
+	@OneToOne
+	@JoinColumn(name="rider_Id")
+	private Address address;
 	
-	//@ElementCollection
+	@OneToOne
+	@JoinColumn(name="rider_Id")
 	Rate rate;
 	
-	//@ElementCollection
-	List<String> favZipCode;
+	@OneToMany
+	@JoinColumn(name="rider_Id")
+	List<ZipCode> favZipCode;
 	
 	
 	public Rider(String firstName, String lastName, String email, Address address) {
@@ -87,17 +95,6 @@ public class Rider implements Serializable{
 		this.address = address;
 	}
 
-	public List<String> getFavZipCode() {
-		return favZipCode;
-	}
-
-	public void addFavZipCode(String zipCode) {
-		favZipCode.add(zipCode);
-	}
-	public void setFavZipCode(List<String> favZipCode) {
-		this.favZipCode = favZipCode;
-	}
-
 	public float getRate() {
 		return rate.rate;
 	}
@@ -107,6 +104,26 @@ public class Rider implements Serializable{
 	}
 	public void setRate(Rate rate) {
 		this.rate = rate;
+	}
+
+	public Long getRider_Id() {
+		return rider_Id;
+	}
+
+	public void setRider_Id(Long rider_Id) {
+		this.rider_Id = rider_Id;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public List<ZipCode> getFavZipCode() {
+		return favZipCode;
+	}
+
+	public void setFavZipCode(List<ZipCode> favZipCode) {
+		this.favZipCode = favZipCode;
 	}
 	
 	

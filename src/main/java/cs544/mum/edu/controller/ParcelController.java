@@ -1,5 +1,5 @@
 package cs544.mum.edu.controller;
 
-public class PackageController {
+public class ParcelController {
 
 }

@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 
 import cs544.mum.edu.domain.Rider;
 import cs544.mum.edu.repository.RiderRepository;
-import cs544.mum.edu.service.IRiderService;
+import cs544.mum.edu.service.RiderService;
 
 @Service
-public class RiderServiceImpl implements IRiderService{
+public class RiderServiceImpl implements RiderService{
 
 	@Autowired
 	private RiderRepository riderRepository;
