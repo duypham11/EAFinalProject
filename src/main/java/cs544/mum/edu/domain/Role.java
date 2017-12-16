@@ -40,6 +40,9 @@ public class Role implements Serializable{
 	public void setRole(String role) {
 		this.role = role;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
  
  	
 }

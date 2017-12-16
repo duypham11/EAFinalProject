@@ -28,8 +28,6 @@ public class Username implements Serializable {
 	@Transient
 	String verifyPassword;
 	Boolean enabled;
-	@Embedded
-	private Address address;
 	
 	String UID;
 
@@ -83,6 +81,10 @@ public class Username implements Serializable {
 
 	public void setUID(String uID) {
 		UID = uID;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
