@@ -6,7 +6,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <tiles:insertDefinition name="storeLayout">
-	<tiles:putAttribute name="title">Store Page</tiles:putAttribute>
+	<tiles:putAttribute name="title">Request a rider</tiles:putAttribute>
 	<tiles:putAttribute name="body">
 		<div class="col-lg-12">
 			<div class="panel panel-primary">

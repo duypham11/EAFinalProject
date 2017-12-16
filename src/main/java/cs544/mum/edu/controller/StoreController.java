@@ -30,7 +30,7 @@ public class StoreController {
         String username = auth.getName();
         Store store = storeService.findByUsername(username);
         List<Parcel> list = parcelService.getParcelsByStoreId(store.getId());
-        model.addAttribute("orders", list );
+        model.addAttribute("parcels", list );
 		return "store";
 	}
 	

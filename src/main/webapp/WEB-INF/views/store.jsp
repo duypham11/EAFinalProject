@@ -6,7 +6,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <tiles:insertDefinition name="storeLayout">
-	<tiles:putAttribute name="title">Store Page</tiles:putAttribute>
+	<tiles:putAttribute name="title">Request List</tiles:putAttribute>
 	<tiles:putAttribute name="body">
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover">
@@ -20,15 +20,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="order" items="${orders}">
+					<c:forEach var="parcel" items="${parcels}">
 						<tr>
-							<td>${order.trackNumber}</td>
-							<td>${order.customerName}</td>
-							<td>${order.address}</td>
-							<td>${order.status.status}</td>
+							<td>${parcel.trackNumber}</td>
+							<td>${parcel.customerName}</td>
+							<td>${parcel.getAddressAsString()}</td>
+							<td>${parcel.status.status}</td>
 							<td class="text-center">
 								<button class="btn btn-primary"
-									onclick="sendRequest('${order.id}')" disabled>Cancel
+									onclick="sendRequest('${parcel.id}')" disabled>Cancel
 									Request</button>
 							</td>
 						</tr>
