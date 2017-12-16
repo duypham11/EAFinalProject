@@ -37,12 +37,8 @@ public class Store implements Serializable {
 	@Size(min = 2, max = 50, message = "{Size.lastName.validation}")
 	private String lastName;
  	
-<<<<<<< HEAD
+
 	@Embedded
-=======
-	@OneToOne
-	@JoinColumn(name="store_id")
->>>>>>> 3b80cff9d3c62f959c8fafe6add0f081354f2c0c
 	private Address address;
 	
 	@Email

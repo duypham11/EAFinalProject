@@ -44,7 +44,7 @@ public class Rider implements Serializable{
 	@Email(message="Please provide a valid email address")
 	private String email;
 	
-<<<<<<< HEAD
+
 	@Embedded
 	private Address address;
 	
@@ -53,20 +53,7 @@ public class Rider implements Serializable{
 	
 	@ElementCollection
 	private List<String> favZipCode;
-=======
-	@OneToOne
-	@JoinColumn(name="rider_Id")
-	private Address address;
-	
-	@OneToOne
-	@JoinColumn(name="rider_Id")
-	Rate rate;
-	
-	@OneToMany
-	@JoinColumn(name="rider_Id")
-	List<ZipCode> favZipCode;
->>>>>>> 3b80cff9d3c62f959c8fafe6add0f081354f2c0c
-	
+
 	
 	public Rider(String firstName, String lastName, String email, Address address) {
 		this.firstName = firstName;
@@ -130,11 +117,11 @@ public class Rider implements Serializable{
 		return serialVersionUID;
 	}
 
-	public List<ZipCode> getFavZipCode() {
+	public List<String> getFavZipCode() {
 		return favZipCode;
 	}
 
-	public void setFavZipCode(List<ZipCode> favZipCode) {
+	public void setFavZipCode(List<String> favZipCode) {
 		this.favZipCode = favZipCode;
 	}
 	
