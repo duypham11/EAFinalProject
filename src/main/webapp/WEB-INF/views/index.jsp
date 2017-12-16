@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<spring:url value='/' />">Welcome to Taobao Tracking System</a>
+                <a class="navbar-brand" href="<spring:url value='/' />">Welcome to FlashDelivery Tracking System</a>
             </div>
             <!-- /.navbar-header -->
             <!-- /.navbar-top-links -->
@@ -92,11 +92,11 @@
                 <div class="col-lg-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            Message from Taobao CEO
+                            Message from FlashDelivery CEO
                         </div>
                         <div class="panel-body">
                             <p>
-                                Thanks for choosing Taobao as your delivery service. We, at Taobao, are committed to serve
+                                Thanks for choosing FlashDelivery as your delivery service. We, at FlashDelivery, are committed to serve
                                 you with the best industry customer service of at least 90% customer satisfaction rating.
                                 Should you have any feedback, please kindly let us know.<br>
                                 <br>Warm Regards,<br><br>
