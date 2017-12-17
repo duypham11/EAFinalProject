@@ -68,6 +68,10 @@ public class Parcel implements Serializable{
 	public Address getAddress() {
 		return address;
 	}
+	
+	public String getAddressAsString() {
+		return this.address.getAddress() + ", " + this.address.getZipCode() + ", "+ this.address.getState();
+	}
 
 	public void setAddress(Address address) {
 		this.address = address;

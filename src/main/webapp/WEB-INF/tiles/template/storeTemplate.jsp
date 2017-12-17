@@ -1,14 +1,17 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Restaurant</title>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
-<!-- Bootstrap Core CSS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title><tiles:insertAttribute name="title" /></title>
+
 <link href="<spring:url value='/bootstrap/vendor/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet">
 <!-- MetisMenu CSS -->
 <link href="<spring:url value='/bootstrap/vendor/metisMenu/metisMenu.min.css'/>" rel="stylesheet">
@@ -28,10 +31,11 @@
 <!-- Custom Theme JavaScript -->
 <script src="<spring:url value='/bootstrap/dist/js/sb-admin-2.js'/>"></script>
 <script type="text/javascript" src="<spring:url value="/resources/js/ajax.js"/>"></script>
-</head>
-<body>
-	<div id="wrapper">
 
+</head>
+
+<body>
+    <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -41,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<spring:url value='/restaurant'/>">Restaurant</a>
+                <a class="navbar-brand" href="<spring:url value='/store'/>">Store</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -81,67 +85,31 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="<spring:url value='/restaurantOrderDelivery' />"><i class="fa fa-plus-circle fa-fw"></i> New Request</a>
+                            <a href="<spring:url value='/storeRequestRider' />"><i class="fa fa-plus-circle fa-fw"></i> New Request</a>
                         </li>
                         <li>
-                            <a href="<spring:url value='/restaurant' />"><i class="fa fa-list-ul fa-fw"></i> Request List </a>
+                            <a href="<spring:url value='/store' />"><i class="fa fa-list-ul fa-fw"></i> Request List </a>
                         </li>
-                        <!-- <li>
-                            <a href="index.html"><i class="fa fa-dashboard  fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            /.nav-second-level
-                        </li> -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Order Web Flow</h1>
+                    <h1 class="page-header"><tiles:insertAttribute name="title" /></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Order Delivery
-                        </div>
-                        <div class="panel-body">
-							<form class="form-horizontal">
-								<fieldset>
-									<legend>Order Cancelled</legend>
-									<p>Your order has been cancelled</p> 
-								</fieldset>
-							</form>
-							<div class="col-lg-12 text-center">
-                              	<a href="<spring:url value='/restaurantOrderDelivery' />" class="btn btn-primary"> Start Another Order </a>
-                              	<a href="<spring:url value='/restaurant' />" class="btn btn-primary"> Go to Order List </a>
-                             </div>
-                        </div>    
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
+         		<tiles:insertAttribute name="body"/>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->]
-
+        <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
     
@@ -161,8 +129,8 @@
                                   <input class="form-control" type="text" id="id">
                               </div>
                          	<div class="form-group">
-                                  <label>Restaurant Name :</label>
-                                  <input class="form-control" type="text" id="restaurantName">
+                                  <label>Store Name :</label>
+                                  <input class="form-control" type="text" id="storeName">
                               </div>
                               <div class="form-group">
                                   <label>Owner First Name :</label>
@@ -197,7 +165,5 @@
           <!-- /.modal-dialog -->
       </div>
      <!-- /.modal -->
-
 </body>
 </html>
-

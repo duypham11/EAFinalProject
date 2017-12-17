@@ -1,5 +1,7 @@
 package cs544.mum.edu.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,6 +63,11 @@ public class RiderServiceImpl implements RiderService{
 	@Override
 	public Iterable<Rider> findRiderByFirstName(String firstName) {
 		return riderRepository.findRiderByFirstName(firstName);
+	}
+	
+	@Override
+	public List<Rider> getAvailableRider() {
+		return (List<Rider>) riderRepository.getAvailableRider();
 	}
 
 }

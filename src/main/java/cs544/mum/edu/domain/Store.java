@@ -49,7 +49,7 @@ public class Store implements Serializable {
 	private String note;
 	
 
-	@OneToOne(fetch=FetchType.EAGER) 
+	@OneToOne(fetch=FetchType.LAZY) 
  	@JoinColumn(name="username") 
  	Username userCredentials;
 	
@@ -104,6 +104,10 @@ public class Store implements Serializable {
 	public Address getAddress() {
 		return address;
 	}
+	
+	public String getAddressAsString() {
+		return this.address.getAddress() + ", " + this.address.getZipCode() + ", "+ this.address.getState();
+	}
 
 	public void setAddress(Address address) {
 		this.address = address;
@@ -112,6 +116,8 @@ public class Store implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
 
 	
   }

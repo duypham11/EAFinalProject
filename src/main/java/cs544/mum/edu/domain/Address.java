@@ -14,6 +14,8 @@ public class Address {
 	//List<String> phoneNumberList = new ArrayList<String>();
 	String phone;
 	
+	public Address() {}
+	
 	public Address(String address, String zipCode, String state, String phone) {
 		this.address = address;
 		this.zipCode = zipCode;

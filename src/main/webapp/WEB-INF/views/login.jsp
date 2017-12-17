@@ -7,7 +7,7 @@
 <html>
 <tiles:insertDefinition name="loginLayout">
 
- <tiles:putAttribute name="title">Taobao Login</tiles:putAttribute> 
+ <tiles:putAttribute name="title">FlashDelivery Login</tiles:putAttribute> 
 	<tiles:putAttribute name="body"> 
 		<div class="container">
 			<div class="row">
@@ -38,6 +38,7 @@
 									</div>
 									<!-- Change this to a button or input when using this as a form -->
 									<input class="btn btn-lg btn-success btn-block" type="submit" value="<spring:message code="login.label.login"/>" />
+									<a class="btn btn-lg btn-default btn-block" href="<spring:url value='/'/>"><spring:message code="login.label.home"/></a>
 								</fieldset>
 								<security:csrfInput />
 							</form>
