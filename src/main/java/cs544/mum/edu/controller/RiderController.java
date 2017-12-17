@@ -1,6 +1,5 @@
 package cs544.mum.edu.controller;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,21 +27,12 @@ public class RiderController {
 		model.addObject("pacerl_list", pacerlList);		
 		return model;
 	}
-	
-	
-=======
-import java.util.Locale;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-@Controller
-public class RiderController {
-	@RequestMapping(value = {"/rider"}, method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {	
-		return "rider";
-	}
->>>>>>> 9ef70778f0dab23276eada2b829b26811ae3e3c0
 }
+	
+//@Controller
+//public class RiderController {
+//	@RequestMapping(value = {"/rider"}, method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {	
+//		return "rider";
+//	}
+//}
