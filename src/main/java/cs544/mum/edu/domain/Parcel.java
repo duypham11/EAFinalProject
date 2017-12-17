@@ -52,6 +52,10 @@ public class Parcel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "rider_Id") 
 	private Rider rider;
+	
+	//constraint to deliver
+//	Date available;
+//	Date deliver;
 
 	public Long getId() {
 		return id;
