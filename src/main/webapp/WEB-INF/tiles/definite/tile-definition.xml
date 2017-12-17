@@ -16,5 +16,8 @@
 	<definition name="storeLayout" template="/WEB-INF/tiles/template/storeTemplate.jsp">
 		<put-attribute name="title" value="Store" />
 	</definition>
+	<definition name="customerLayout" template="/WEB-INF/tiles/template/customerTemplate.jsp">
+		<put-attribute name="title" value="Customer" />
+	</definition>
 	 	
 </tiles-definitions>
