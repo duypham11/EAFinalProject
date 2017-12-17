@@ -5,51 +5,51 @@
 							http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
 <!-- Flow level variable definition SO flow scope -->
-	<var name="orderDelivery" class="mum.edu.domain.OrderDelivery" />
-	<var name="rider" class="mum.edu.domain.Rider" />
+	<var name="parcel" class="cs544.mum.edu.domain.Parcel" />
+	<var name="rider" class="cs544.mum.edu.domain.Rider" />
 	<var name="riders" class="java.util.ArrayList" />
 
 <!-- First "state" listed is first executed - unless <on-start> -->
 	<on-start>
-		<evaluate expression="orderDeliveryControllerHelper.initiate()" result="orderDelivery" />
+		<evaluate expression="requestRiderControllerHelper.initiate()" result="parcel" />
 	</on-start>
 	
-	<view-state id="collectCustomerInfo" view="collectCustomerInfo.jsp" model="orderDelivery">
+	<view-state id="collectCustomerInfo" view="collectCustomerInfo.jsp" model="parcel">
 		<transition on="customerInfoCollected" to="processAvailableRider" />
-		<transition on="cancel" to="cancelOrderDelivery" validate="false"/>
+		<transition on="cancel" to="cancelRequestRider" validate="false"/>
 	</view-state>
 	
 	<action-state id="processAvailableRider">
-		<evaluate expression="orderDeliveryControllerHelper.getAvailableRider()" result="rider"/>
+		<evaluate expression="requestRiderControllerHelper.getAvailableRider()" result="rider"/>
 		<transition to="collectRiderDetail" />
 	</action-state>
 
-	<view-state id="collectRiderDetail" model="orderDelivery">
+	<view-state id="collectRiderDetail" model="parcel">
 		<transition on="backToCollectCustomerInfo" to="collectCustomerInfo" />
-		<transition on="cancel" to="cancelOrderDelivery" validate="false"/>
+		<transition on="cancel" to="cancelRequestRider" validate="false"/>
 		<transition on="riderDetailCollected" to="processSelectRider" />
 	</view-state>
 	
 	<action-state id="processSelectRider">
-		<evaluate expression="orderDeliveryControllerHelper.saveOrderDelivery(orderDelivery, rider)" result="orderDelivery"/>
+		<evaluate expression="requestRiderControllerHelper.saveOrderDelivery(parcel, rider)" result="parcel"/>
 		<transition to="processNotification" />
 	</action-state>
 	
 	<action-state id="processNotification">
-		<evaluate expression="orderDeliveryControllerHelper.sendOutNotifcation(orderDelivery,rider)"/>
-		<transition to="thankRestaurant" />
+		<evaluate expression="requestRiderControllerHelper.sendOutNotifcation(parcel,rider)"/>
+		<transition to="thankYou" />
 	</action-state>
 	
-	<view-state id="thankRestaurant" model="orderDelivery">
+	<view-state id="thankYou" model="parcel">
 		<transition to="endState"/>
 	</view-state>
 	
-	<end-state id="cancelOrderDelivery" view="orderDeliveryCancelled.jsp"/>
+	<end-state id="cancelRequestRider" view="requestRiderCancelled.jsp"/>
 
 	<end-state id="endState"/>	
 	
 	<global-transitions>
-		<transition on="cancel" to="cancelOrderDelivery" />
+		<transition on="cancel" to="cancelRequestRider" />
 	</global-transitions>
 
 </flow>

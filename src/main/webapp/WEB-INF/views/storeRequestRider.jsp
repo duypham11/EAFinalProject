@@ -45,7 +45,7 @@
 						</div>
 					</div>
 					<div class="col-lg-12 text-center">
-						<a href="<spring:url value='/orderDelivery' />"
+						<a href="<spring:url value='/requestRider' />"
 							class="btn btn-primary"> Start </a>
 					</div>
 				</div>

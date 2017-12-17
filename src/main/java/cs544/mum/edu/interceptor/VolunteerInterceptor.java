@@ -18,7 +18,7 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
 			HttpServletResponse response, Object handler) throws Exception {
 
 		// test interceptor Order		
-		System.out.println("INTERCEPTOR PREHANDLE");
+		//System.out.println("INTERCEPTOR PREHANDLE");
 
 		return true;
 	}
@@ -45,7 +45,7 @@ public class VolunteerInterceptor extends HandlerInterceptorAdapter {
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex)
 					throws Exception {
-		System.out.println("Calling afterCompletion");
+		//System.out.println("Calling afterCompletion");
 		return;
 	}
 

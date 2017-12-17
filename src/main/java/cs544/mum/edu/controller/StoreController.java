@@ -36,9 +36,9 @@ public class StoreController {
 		return "store";
 	}
 	
-	@RequestMapping(value = {"/storeOrderDelivery"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/storeRequestRider"}, method = RequestMethod.GET)
 	public String storeOrderDelivery(Locale locale, Model model) {	
-		return "storeOrderDelivery";
+		return "storeRequestRider";
 	}
 	
 	@RequestMapping(value="/storeProfile", method = RequestMethod.GET, produces = "application/json")

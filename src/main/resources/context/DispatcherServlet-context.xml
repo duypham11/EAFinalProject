@@ -98,7 +98,7 @@
 	
 	<webflow-config:flow-registry flow-builder-services="flowBuilderServices" 
 									id="flowRegistry"	base-path="/WEB-INF/flows">
-		<webflow-config:flow-location id="orderDelivery" path="/orderDelivery/orderDelivery.xml" />
+		<webflow-config:flow-location id="requestRider" path="/requestRider/requestRider.xml" />
  	</webflow-config:flow-registry>
 	
 	<webflow-config:flow-builder-services id="flowBuilderServices" validator="validator" />

@@ -1,5 +1,7 @@
 package cs544.mum.edu.service;
 
+import java.util.List;
+
 import cs544.mum.edu.domain.Rider;
 
 public interface RiderService {
@@ -13,5 +15,6 @@ public interface RiderService {
 	Iterable<Rider> findRidersByFavZipCode(String zipcode);
 	Iterable<Rider> findRiderByEmail(String email);
 	Iterable<Rider> findRiderByFirstName(String firstName);
+	List<Rider> getAvailableRider();
 
 }
