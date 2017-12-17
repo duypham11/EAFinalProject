@@ -95,7 +95,7 @@ public class Rider implements Serializable{
 	@ElementCollection
 	private List<String> favZipCode;
 
-	@OneToMany(mappedBy = "rider")
+	@OneToMany(mappedBy = "rider", fetch=FetchType.EAGER)
 	private List<Parcel> parcelList;
 	
 	public Rider(String firstName, String lastName, String email, Address address) {

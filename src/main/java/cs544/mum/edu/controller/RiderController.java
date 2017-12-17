@@ -21,7 +21,7 @@ public class RiderController {
 	
 	@RequestMapping(value="/rider/{id}", method = RequestMethod.GET)
 	public ModelAndView homePage(@PathVariable("id") long id) {		
-		ModelAndView model = new ModelAndView("/rider/pacerl_list");
+		ModelAndView model = new ModelAndView("pacerl_list");
 		List<Parcel> pacerlList = riderService.getRider(id).getParcelList();
 		System.out.println("======list=Parcel==" + pacerlList.size());
 		model.addObject("pacerl_list", pacerlList);		
