@@ -117,8 +117,8 @@ public class RiderController {
 		List<Parcel> parcelList = rider.getNotDoneParcelList();
 		model.addAttribute("notDoneParcelList", parcelList);
 		
-		List<Parcel> allParcelList = rider.getParcelList();
-		model.addAttribute("allParcelList", allParcelList);
+		List<Parcel> completedParcelList = rider.getDoneParcelList();
+		model.addAttribute("completedParcelList", completedParcelList);
 		
 		model.addAttribute("rider", rider);
 		

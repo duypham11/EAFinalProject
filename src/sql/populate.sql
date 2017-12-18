@@ -21,3 +21,4 @@ INSERT INTO ParcelStatus (status) VALUES ('DONE');
 
 INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('304 W.Hempstead Avenue Fairfield, IA', 'Josh Stark', "123456", 1, 1, 1,'khlok.samphors@gmail.com');
 INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('1000 N Street Fairfield, IA', 'Martin King', "654321", 1, 1, 1,'khlok.samphors@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('123 E 25th Street Mt Plesant, IA', 'Bob Brother', "87659", 1, 1, 3,'dp12@gmail.com');

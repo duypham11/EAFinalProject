@@ -162,7 +162,7 @@ public class Rider implements Serializable{
 	public List<Parcel> getDoneParcelList() {
 		List<Parcel> result = new ArrayList<Parcel>();
 		for (Parcel p:parcelList) {
-			if (p.getStatus().equals("DONE"))
+			if (p.getStatus().getStatus().equals("DONE"))
 				result.add(p);
 		}
 		return result;
@@ -170,8 +170,9 @@ public class Rider implements Serializable{
 	
 	public List<Parcel> getNotDoneParcelList() {
 		List<Parcel> result = new ArrayList<Parcel>();
+		
 		for (Parcel p:parcelList) {
-			if (!p.getStatus().equals("DONE"))
+			if (!p.getStatus().getStatus().equals("DONE"))
 				result.add(p);
 		}
 		return result;

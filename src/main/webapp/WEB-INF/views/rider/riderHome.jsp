@@ -59,15 +59,15 @@
 <%--                 			<img class="img-circle" alt="Rider photo" src="${pageContext.request.contextPath}/resources/images/${rider.photoURL}.png" width="100"/> --%>
 <%-- 	                		<h3>${rider.firstName}</h3> --%>
                 		</div>
-                    <ul class="nav" id="side-menu">
+<!--                     <ul class="nav" id="side-menu"> -->
                         
-                        <li>
-                            <a href="index.html"><i class="fa fa-plus-circle fa-fw"></i> New Request</a>
-                        </li>
-                        <li>
-                            <a href="index.html"><i class="fa fa-list-ul fa-fw"></i> Request List</a>
-                        </li>
-                    </ul>
+<!--                         <li> -->
+<!--                             <a href="index.html"><i class="fa fa-plus-circle fa-fw"></i> New Request</a> -->
+<!--                         </li> -->
+<!--                         <li> -->
+<!--                             <a href="index.html"><i class="fa fa-list-ul fa-fw"></i> Request List</a> -->
+<!--                         </li> -->
+<!--                     </ul> -->
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
@@ -83,7 +83,7 @@
         		<div class="col-lg-12">
             		<div class="panel panel-primary">
                 		<div class="panel-heading">
-                     	Available Delivery orders
+                     	On Going Delivery orders
                  	</div>
                  	<div class="panel-body">
                             <div class="table-responsive">
@@ -91,20 +91,24 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Customer</th>
                                             <th>Store</th>
+                                            <th>Customer</th>
                                             <th>Address</th>
+                                            <th>ZipCode</th>
+                                            <th>Phone</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     	   <c:forEach var="parcel" items="${notDoneParcelList}">
                                     	   		<tr>
 	                                            <td>${parcel.id}</td>
-	                                            <td>${parcel.customerName}</td>
 	                                            <td>${parcel.store.name}</td>
-	                                            <td>${parcel.address}</td>
+	                                            <td>${parcel.customerName}</td>
+	                                            <td>${parcel.address.address}</td>
+	                                            <td>${parcel.address.zipCode}</td>
+	                                            <td>${parcel.address.phone}</td>
 	                                            <td>
-	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${order.id}')">Accept</button>
+	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${order.id}')">Complete</button>
 	                                            </td>
                                         		</tr>		
                                     	   </c:forEach>
@@ -120,7 +124,7 @@
         		<div class="col-lg-12">
             		<div class="panel panel-green">
                 		<div class="panel-heading">
-                     	Current deliveries
+                     	Completed deliveries
                  	</div>
                  	<div class="panel-body">
                             <div class="table-responsive">
@@ -128,21 +132,19 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Customer</th>
                                             <th>Store</th>
+                                            <th>Customer</th>
+
                                             <th>Address</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    	   <c:forEach var="parcel" items="${allParcelList}">
+                                    	   <c:forEach var="cParcel" items="${completedParcelList}">
                                     	   		<tr>
-	                                            <td>${parcel.id}</td>
-	                                            <td>${parcel.customerName}</td>
-	                                            <td>${parcel.store.name}</td>
-	                                            <td>${parcel.address}</td>
-	                                            <td>
-	                                            		<button type="button" class="btn btn-outline btn-success" onclick="completeOrder('${order.id}')">Complete</button>
-	                                            </td>
+	                                            <td>${cParcel.id}</td>
+	                                            <td>${cParcel.store.name}</td>
+	                                            <td>${cParcel.customerName}</td>
+	                                            <td>${cParcel.address.address}</td>
                                         		</tr>		
                                     	   </c:forEach>
                                     </tbody>
