@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cs544.mum.edu.domain.Store;
 import cs544.mum.edu.service.ParcelService;
 import cs544.mum.edu.service.StoreService;
+import cs544.mum.edu.domain.Address;
 import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.Role;
 
@@ -88,17 +89,22 @@ public class StoreController {
 			return "storeSignup";
 		}
 		
+		//use email as user name
 		store.getUserCredentials().setUsername(store.getEmail());
 		
+		//create role
 		Role role = new Role();
 		role.setUsername(store.getEmail());
 		role.setRole("ROLE_STORE");
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(role);
 		
+		//append role
 		store.getUserCredentials().setRole(roles);
 		store.getUserCredentials().setEnabled(false);
 		store.getUserCredentials().setUID(UUID.randomUUID().toString());
+		
+		//save store and user credential
 		storeService.saveFull(store);
  		
 		return "redirect:/storeSignupThank";
