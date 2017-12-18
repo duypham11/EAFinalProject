@@ -5,7 +5,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 <html>
-<tiles:insertDefinition name="riderLayout">
+<tiles:insertDefinition name="customerLayout">
 <tiles:putAttribute name="title">Rider signup</tiles:putAttribute>
 <tiles:putAttribute name="body"> 
 
@@ -86,6 +86,14 @@
 								<form:input path="email" class="form-control" />
 								<div>
 									<form:errors path="email" cssStyle="color : red;" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label>Address</label>
+								<form:input path="address.address" class="form-control" />
+								<div>
+									<form:errors path="address.address" cssStyle="color : red;" />
 								</div>
 							</div>
 							<div class="form-group">
