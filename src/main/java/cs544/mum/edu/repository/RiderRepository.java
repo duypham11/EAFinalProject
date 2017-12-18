@@ -11,7 +11,7 @@ import cs544.mum.edu.domain.Rider;
 public interface RiderRepository extends CrudRepository <Rider, Long> {
 
 	public List<Rider> findRiderByfavZipCode(String zipCode);
-	public List<Rider> findRiderByAddressPhone(String phoneNumber);
+	public List<Rider> findRiderByAddressPhone(String phone);
 	public List<Rider> findRiderByEmail(String email);
 	public List<Rider> findRiderByFirstName(String firstName);
 	

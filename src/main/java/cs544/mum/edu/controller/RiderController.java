@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.Rider;
 import cs544.mum.edu.domain.Role;
+import cs544.mum.edu.service.ParcelService;
 import cs544.mum.edu.service.RiderService;
 import cs544.mum.edu.service.RoleService;
 import cs544.mum.edu.validator.PasswordValidator;
@@ -45,6 +46,9 @@ public class RiderController {
 	
 	@Autowired
 	RoleService roleService;
+	
+	@Autowired
+	ParcelService parcelService;
 	
 	@RequestMapping(value="/rider/{id}", method = RequestMethod.GET)
 	public ModelAndView homePage(@PathVariable("id") long id) {		
@@ -112,13 +116,15 @@ public class RiderController {
         String username = auth.getName();
         Rider rider = riderService.findRiderByUserName(username);
         
+        
 		List<Parcel> parcelList = rider.getNotDoneParcelList();
 		model.addAttribute("notDoneParcelList", parcelList);
 		
 		List<Parcel> completedParcelList = rider.getDoneParcelList();
 		model.addAttribute("completedParcelList", completedParcelList);
 		
-		model.addAttribute("rider", rider);
+		List<Parcel> allParcelAvailable = parcelService.findParcelByParcelStatus("NEW");
+		model.addAttribute("allParcelAvailable", allParcelAvailable);
 		
 		return "rider/riderHome";
 	}

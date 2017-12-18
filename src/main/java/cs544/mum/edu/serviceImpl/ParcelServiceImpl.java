@@ -53,6 +53,10 @@ public class ParcelServiceImpl implements ParcelService {
 	@Override
 	public String getNextTrackNo() {
 		return String.valueOf(parcelRepository.getNextTrackNo() + 1);
-	};
+	}
 
+	@Override
+	public List<Parcel> findParcelByParcelStatus(String status) {
+		return parcelRepository.findParcelByParcelStatus(status);
+	}
 }

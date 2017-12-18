@@ -108,7 +108,7 @@
 	                                            <td>${parcel.address.zipCode}</td>
 	                                            <td>${parcel.address.phone}</td>
 	                                            <td>
-	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${order.id}')">Complete</button>
+	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${parcel.id}')">Complete</button>
 	                                            </td>
                                         		</tr>		
                                     	   </c:forEach>
@@ -153,6 +153,47 @@
             		</div>
         		</div>
         </div>
+        
+	    <div class="row">
+        		<div class="col-lg-12">
+            		<div class="panel panel-primary">
+                		<div class="panel-heading">
+                     	All Available Parcels
+                 	</div>
+                 	<div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Store</th>
+                                            <th>Customer</th>
+                                            <th>Address</th>
+                                            <th>ZipCode</th>
+                                            <th>Phone</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	   <c:forEach var="allParcels" items="${allParcelAvailable}">
+                                    	   		<tr>
+	                                            <td>${allParcels.id}</td>
+	                                            <td>${allParcels.store.name}</td>
+	                                            <td>${allParcels.customerName}</td>
+	                                            <td>${allParcels.address.address}</td>
+	                                            <td>${allParcels.address.zipCode}</td>
+	                                            <td>${allParcels.address.phone}</td>
+	                                            <td>
+	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${allParcels.id}')">Select</button>
+	                                            </td>
+                                        		</tr>		
+                                    	   </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+            		</div>
+        		</div>
+        </div>        
 	</div>
 	</div>
 	<!-- Modal -->
