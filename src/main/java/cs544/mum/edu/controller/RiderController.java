@@ -43,8 +43,8 @@ public class RiderController {
 	@Autowired
 	ServletContext servletContext;
 	
-	//@Autowired
-	//RoleService roleService;
+	@Autowired
+	RoleService roleService;
 	
 	@RequestMapping(value="/rider/{id}", method = RequestMethod.GET)
 	public ModelAndView homePage(@PathVariable("id") long id) {		
@@ -88,16 +88,14 @@ public class RiderController {
 		Role role = new Role();
 		role.setUsername(rider.getEmail());
 		role.setRole("ROLE_RIDER");
-		List<Role> roles = new ArrayList<Role>();
 		
 		System.out.println("======/rider/processRider====="+rider.getEmail()+"=========" + userUID);
 
-		rider.getUserCredentials().setRole(roles);
+		rider.getUserCredentials().addRole(role);
 		rider.getUserCredentials().setUsername(rider.getEmail());
 		rider.getUserCredentials().setUID(userUID);
-		rider.getUserCredentials().setEnabled(false);
+		rider.getUserCredentials().setEnabled(true);
 		riderService.createRider(rider);
-		//roleService.save(role);
 		
 		return "redirect:/rider/riderSuccess";
 	}

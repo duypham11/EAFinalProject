@@ -53,9 +53,9 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                		<div class="panel-body">
+<!--             <div class="navbar-default sidebar" role="navigation"> -->
+<!--                 <div class="sidebar-nav navbar-collapse"> -->
+<!--                 		<div class="panel-body"> -->
 <%--                 			<img class="img-circle" alt="Rider photo" src="${pageContext.request.contextPath}/resources/images/${rider.photoURL}.png" width="100"/> --%>
 <%-- 	                		<h3>${rider.firstName}</h3> --%>
                 		</div>
@@ -68,9 +68,9 @@
 <!--                             <a href="index.html"><i class="fa fa-list-ul fa-fw"></i> Request List</a> -->
 <!--                         </li> -->
 <!--                     </ul> -->
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+<!--                 </div> -->
+<!--                 /.sidebar-collapse -->
+<!--             </div> -->
             <!-- /.navbar-static-side -->
         </nav>
 	<div id="page-wrapper">
@@ -134,7 +134,6 @@
                                             <th>#</th>
                                             <th>Store</th>
                                             <th>Customer</th>
-
                                             <th>Address</th>
                                         </tr>
                                     </thead>
