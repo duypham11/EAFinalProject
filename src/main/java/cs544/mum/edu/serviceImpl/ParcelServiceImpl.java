@@ -1,5 +1,7 @@
 package cs544.mum.edu.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,5 +60,12 @@ public class ParcelServiceImpl implements ParcelService {
 	@Override
 	public List<Parcel> findParcelByParcelStatus(String status) {
 		return parcelRepository.findParcelByParcelStatus(status);
+/*		List<Parcel> result = new ArrayList<Parcel>();
+		for (Iterator<Parcel> iterParcel = parcelRepository.findAll().iterator(); iterParcel.hasNext();) {
+			Parcel p = iterParcel.next();
+			if (p.getStatus().getStatus().equals(status))
+				result.add(p);
+		}
+		return result;*/
 	}
 }
