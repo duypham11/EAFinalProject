@@ -22,6 +22,7 @@ INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUE
 INSERT INTO ParcelStatus (status) VALUES ('NEW');
 INSERT INTO ParcelStatus (status) VALUES ('RIDING');
 INSERT INTO ParcelStatus (status) VALUES ('DONE');
+INSERT INTO ParcelStatus (status) VALUES ('CANCELLED');
 
 INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('304 W.Hempstead Avenue Fairfield, IA', 'Josh Stark', "123456",1, 1, 1,'khlok.samphors@gmail.com');
 INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('1000 N Street Fairfield, IA', 'Martin King', "654321", 1, 2, 2,'khlok.samphors@gmail.com');
