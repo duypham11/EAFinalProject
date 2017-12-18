@@ -54,8 +54,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restaurantSignup.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/restaurantSignup.html">
+      <file leaf-file-name="storeSignup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/storeSignup.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2052">
               <caret line="114" column="8" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="188" selection-end-column="32" />
@@ -268,7 +268,7 @@
           </option>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/finalPro/restaurant/profile" />
+          <option name="urlPath" value="/finalPro/store/profile" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -299,7 +299,7 @@
           </option>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/finalPro/restaurant/profile" />
+          <option name="urlPath" value="/finalPro/store/profile" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -330,7 +330,7 @@
           </option>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/finalPro/restaurant" />
+          <option name="urlPath" value="/finalPro/store" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -350,7 +350,7 @@
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/finalPro/restaurant" />
+          <option name="urlPath" value="/finalPro/store" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -467,7 +467,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/restaurantSignup.html">
+    <entry file="file://$PROJECT_DIR$/pages/storeSignup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2052">
           <caret line="114" column="8" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="188" selection-end-column="32" />
@@ -541,7 +541,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/restaurantSignup.html">
+    <entry file="file://$PROJECT_DIR$/pages/storeSignup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2052">
           <caret line="114" column="8" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="188" selection-end-column="32" />
@@ -654,7 +654,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/restaurantSignup.html">
+    <entry file="file://$PROJECT_DIR$/pages/storeSignup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2052">
           <caret line="114" column="8" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="188" selection-end-column="32" />

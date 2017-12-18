@@ -21,7 +21,7 @@ public class AuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHa
         } else if(role.contains("ROLE_STORE")) {
         		redirectUrl = "/store";
         } else if (role.contains("ROLE_RIDER")) {
-        		redirectUrl = "/rider";
+        		redirectUrl = "/rider/riderHome";
         }
         return redirectUrl;
     }

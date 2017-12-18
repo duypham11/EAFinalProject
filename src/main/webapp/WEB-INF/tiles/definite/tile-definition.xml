@@ -3,13 +3,13 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/layoutTemplate.jsp">
 		<put-attribute name="title" value="Sample Title" />
 	</definition>
 	<definition name="riderLayout" template="/WEB-INF/tiles/template/riderTemplate.jsp">
 		<put-attribute name="title" value="Rider" />
 	</definition>
+	
 	<definition name="loginLayout" template="/WEB-INF/tiles/template/loginTemplate.jsp">
 		<put-attribute name="title" value="Login" />
 	</definition>

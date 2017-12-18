@@ -1,6 +1,7 @@
 package cs544.mum.edu.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -51,44 +52,14 @@ public class Rider implements Serializable{
 	private String photoURL;
 	
 	@OneToOne(fetch=FetchType.EAGER) 
- 	@JoinColumn(name="username") 
+ 	@JoinColumn(name="username")
  	Username userCredentials;
 	
-	public Rider() {}
-	
-	public String getPhotoURL() {
-		return photoURL;
-	}
-
-	public void setPhotoURL(String photoURL) {
-		this.photoURL = photoURL;
-	}
-
-	public Username getUserCredentials() {
-		return userCredentials;
-	}
-
-	public void setUserCredentials(Username userCredentials) {
-		this.userCredentials = userCredentials;
-	}
-
-	public List<Parcel> getParcelList() {
-		return parcelList;
-	}
-
-	public void setParcelList(List<Parcel> parcelList) {
-		this.parcelList = parcelList;
-	}
-
-	public void addParcel(Parcel parcel) {
-		this.parcelList.add(parcel);
+	public Rider() {
+		rate = new Rate();
+		address = new Address();
 	}
 	
-	public void removeParcel(Parcel parcel) {
-		if (this.parcelList.isEmpty()||this.parcelList.indexOf(parcel)<0)
-			return;
-		this.parcelList.remove(parcel);
-	}
 	@Embedded
 	private Rate rate;
 	
@@ -168,5 +139,54 @@ public class Rider implements Serializable{
 		this.favZipCode = favZipCode;
 	}
 	
+	public String getPhotoURL() {
+		return photoURL;
+	}
+
+	public void setPhotoURL(String photoURL) {
+		this.photoURL = photoURL;
+	}
+
+	public Username getUserCredentials() {
+		return userCredentials;
+	}
+
+	public void setUserCredentials(Username userCredentials) {
+		this.userCredentials = userCredentials;
+	}
+
+	public List<Parcel> getParcelList() {
+		return parcelList;
+	}
+
+	public List<Parcel> getDoneParcelList() {
+		List<Parcel> result = new ArrayList<Parcel>();
+		for (Parcel p:parcelList) {
+			if (p.getStatus().equals("DONE"))
+				result.add(p);
+		}
+		return result;
+	}
 	
+	public List<Parcel> getNotDoneParcelList() {
+		List<Parcel> result = new ArrayList<Parcel>();
+		for (Parcel p:parcelList) {
+			if (!p.getStatus().equals("DONE"))
+				result.add(p);
+		}
+		return result;
+	}
+	public void setParcelList(List<Parcel> parcelList) {
+		this.parcelList = parcelList;
+	}
+
+	public void addParcel(Parcel parcel) {
+		this.parcelList.add(parcel);
+	}
+	
+	public void removeParcel(Parcel parcel) {
+		if (this.parcelList.isEmpty()||this.parcelList.indexOf(parcel)<0)
+			return;
+		this.parcelList.remove(parcel);
+	}
 }

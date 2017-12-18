@@ -44,7 +44,7 @@
 				<div class="panel panel-red">
 					<div class="panel-heading">Free Dinning Coupon</div>
 					<div class="panel-body">
-						<p>Panda restaurant just opens in your neighbourhood. Visit
+						<p>Panda store just opens in your neighbourhood. Visit
 							the store with coupon code: PandaAwesome2017, you will be
 							entitled for 50% off for dinner cost more than $50. T&C Applys</p>
 					</div>

@@ -26,16 +26,16 @@ public class StoreServiceImpl implements StoreService {
 	private UsernameRepository usernameRepository;
 
 //	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public void save( Store restaurant) {  		
-		storeRepository.save(restaurant);
+	public void save( Store store) {  		
+		storeRepository.save(store);
 	}
 
 
 	@Override
 //	@PreAuthorize("hasRole('ROLE_STORE')")
-	public void saveFull( Store restaurant) {  	
-		usernameRepository.save(restaurant.getUserCredentials());
-		storeRepository.save(restaurant);
+	public void saveFull( Store store) {  	
+		usernameRepository.save(store.getUserCredentials());
+		storeRepository.save(store);
 	}
 
 	public List<Store> findAll() {

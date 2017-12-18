@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-primary">
-					<div class="panel-heading">Restaurant Detail</div>
+					<div class="panel-heading">Store Detail</div>
 					<div class="panel-body">
 						<div class="alert alert-success alert-dismissable">
 							<button type="button" class="close" data-dismiss="alert"

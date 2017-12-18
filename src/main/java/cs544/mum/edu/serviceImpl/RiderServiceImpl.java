@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import cs544.mum.edu.domain.Rider;
 import cs544.mum.edu.repository.RiderRepository;
+import cs544.mum.edu.repository.UsernameRepository;
 import cs544.mum.edu.service.RiderService;
 
 @Service
@@ -15,8 +16,13 @@ public class RiderServiceImpl implements RiderService{
 	@Autowired
 	private RiderRepository riderRepository;
 	
+	@Autowired
+	UsernameRepository usernameRepository;
+	
 	@Override
 	public void createRider(Rider rider) {
+		rider.getUserCredentials().setEnabled(true);
+		usernameRepository.save(rider.getUserCredentials());
 		riderRepository.save(rider);
 	}
 
@@ -32,6 +38,8 @@ public class RiderServiceImpl implements RiderService{
 
 	@Override
 	public void updateRider(Rider rider) {
+		//rider.getUserCredentials().setEnabled(true);
+		usernameRepository.save(rider.getUserCredentials());
 		riderRepository.save(rider);
 	}
 
@@ -68,6 +76,12 @@ public class RiderServiceImpl implements RiderService{
 	@Override
 	public List<Rider> getAvailableRider() {
 		return (List<Rider>) riderRepository.getAvailableRider();
+	}
+
+	@Override
+	public Rider findRiderByUserName(String userName) {
+		//riderRepository.getAvailableRider()
+		return riderRepository.findRiderByUsername(userName);
 	}
 
 }

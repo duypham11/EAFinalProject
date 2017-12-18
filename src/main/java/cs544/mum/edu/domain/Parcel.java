@@ -39,7 +39,7 @@ public class Parcel implements Serializable{
 	private String trackNumber;
 	
 	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "status_id") 
 	private ParcelStatus status;
 		

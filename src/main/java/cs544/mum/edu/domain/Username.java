@@ -31,10 +31,12 @@ public class Username implements Serializable {
 	
 	String UID;
 
+	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "username")
 	List<Role> role = new ArrayList<Role>();
 
+	
 	public String getUsername() {
 		return username;
 	}

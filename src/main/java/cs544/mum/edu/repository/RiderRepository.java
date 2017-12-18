@@ -5,14 +5,19 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.Rider;
 
 public interface RiderRepository extends CrudRepository <Rider, Long> {
 
-	List<Rider> findRiderByfavZipCode(String zipCode);
-	List<Rider> findRiderByAddressPhone(String phoneNumber);
-	List<Rider> findRiderByEmail(String email);
-	List<Rider> findRiderByFirstName(String firstName);
+	public List<Rider> findRiderByfavZipCode(String zipCode);
+	public List<Rider> findRiderByAddressPhone(String phoneNumber);
+	public List<Rider> findRiderByEmail(String email);
+	public List<Rider> findRiderByFirstName(String firstName);
+	
+	@Query(value = "SELECT * FROM Rider WHERE username = ?1", nativeQuery = true)
+	public Rider findRiderByUsername(String userName);
+	//public List<Parcel> getParcelList();
 	
 	@Query(value= "SELECT r.* FROM Rider r \n" + 
 			"WHERE r.rider_id NOT IN (\n" + 

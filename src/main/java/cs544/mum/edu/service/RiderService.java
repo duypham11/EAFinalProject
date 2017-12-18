@@ -15,6 +15,8 @@ public interface RiderService {
 	Iterable<Rider> findRidersByFavZipCode(String zipcode);
 	Iterable<Rider> findRiderByEmail(String email);
 	Iterable<Rider> findRiderByFirstName(String firstName);
+	Rider findRiderByUserName(String userName);
+
 	List<Rider> getAvailableRider();
 
 }

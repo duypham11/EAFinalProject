@@ -84,10 +84,10 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="<spring:url value='/restaurantOrderDelivery' />"><i class="fa fa-plus-circle fa-fw"></i> New Request</a>
+                            <a href="<spring:url value='/storeOrderDelivery' />"><i class="fa fa-plus-circle fa-fw"></i> New Request</a>
                         </li>
                         <li>
-                            <a href="<spring:url value='/restaurant' />"><i class="fa fa-list-ul fa-fw"></i> Request List </a>
+                            <a href="<spring:url value='/store' />"><i class="fa fa-list-ul fa-fw"></i> Request List </a>
                         </li>
                     </ul>
                 </div>
@@ -128,8 +128,8 @@
                                   <input class="form-control" type="text" id="id">
                               </div>
                          	<div class="form-group">
-                                  <label>Restaurant Name :</label>
-                                  <input class="form-control" type="text" id="restaurantName">
+                                  <label>Store Name :</label>
+                                  <input class="form-control" type="text" id="storeName">
                               </div>
                               <div class="form-group">
                                   <label>Owner First Name :</label>

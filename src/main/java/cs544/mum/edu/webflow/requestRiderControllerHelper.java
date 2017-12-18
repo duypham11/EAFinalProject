@@ -81,18 +81,18 @@ public class requestRiderControllerHelper {
 		emailToRider.setText("This task is for customer " + parcel.getCustomerName());
 		emailService.sendEmail(emailToRider);
 		
-		//one copy for restaurant owner
+		//one copy for store owner
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
 		Store res =	 storeService.findByUsername(username);
 		
-		SimpleMailMessage emailToRestaurant = new SimpleMailMessage();
-		System.out.println("restaurant email " + res.getEmail());
+		SimpleMailMessage emailToStore = new SimpleMailMessage();
+		System.out.println("store email " + res.getEmail());
 		
-		emailToRestaurant.setTo(res.getEmail());
-		emailToRestaurant.setSubject("A rider request " + parcel.getTrackNumber());
-		emailToRestaurant.setText("A rider has been assigned to you, " + rider.getFirstName());
-		emailService.sendEmail(emailToRestaurant);
+		emailToStore.setTo(res.getEmail());
+		emailToStore.setSubject("A rider request " + parcel.getTrackNumber());
+		emailToStore.setText("A rider has been assigned to you, " + rider.getFirstName());
+		emailService.sendEmail(emailToStore);
 	}
 	
 }

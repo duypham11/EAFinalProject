@@ -82,7 +82,7 @@
 								class="fa fa-sign-in fa-fw"></i> Login</a></li>
 						<li><a href="<spring:url value='/storeSignup' />"><i
 								class="fa fa-users fa-fw"></i> Become our Partner</a></li>
-						<li><a href="<spring:url value='/riderSignup' />"><i
+						<li><a href="<spring:url value='/rider/riderSignup' />"><i
 								class="fa fa-car  fa-fw"></i> Become our Rider</a></li>
 					</ul>
 				</div>

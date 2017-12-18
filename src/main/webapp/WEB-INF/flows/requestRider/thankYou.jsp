@@ -71,9 +71,9 @@
 						</fieldset>
 					</form>
 					<div class="col-lg-12 text-center">
-						<a href="<spring:url value='/restaurantOrderDelivery' />"
+						<a href="<spring:url value='/storeOrderDelivery' />"
 							class="btn btn-primary"> Start Another Order </a> <a
-							href="<spring:url value='/restaurant' />" class="btn btn-primary">
+							href="<spring:url value='/store' />" class="btn btn-primary">
 							Go to Order List </a>
 					</div>
 				</div>

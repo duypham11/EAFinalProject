@@ -18,6 +18,6 @@ public interface UsernameRepository extends CrudRepository<Username,String> {
 	Username findByusername(/*@Param("username")*/String username);
 	@Modifying
 	@Transactional
-	@Query("UPDATE Username c SET c.enabled = 0 WHERE c.username=:username")
+	@Query("UPDATE Username c SET c.enabled = 1 WHERE c.username=:username")
 	public int updateEnableByUsername(@Param("username") String username);
 }
