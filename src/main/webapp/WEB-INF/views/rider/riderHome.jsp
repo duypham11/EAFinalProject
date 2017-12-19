@@ -18,6 +18,11 @@
 	<title>Rider home</title>
 </head>
 <body>
+
+ <var="rider_Id" items="${RiderID}">
+ </var>
+  <var="riderName" items="${RiderName}">
+ </var>
 	<div id="wrapper">
 		<!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -28,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<spring:url value='/rider122'/>">Flash Delivery Rider</a>
+                <a class="navbar-brand" href="<spring:url value='/rider'/>">Flash Delivery Rider</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -76,7 +81,7 @@
 	<div id="page-wrapper">
 		<div class="row">
 	    		<div class="col-lg-12">
-	    			<h1 class="page-header">Your deliveries <p class="fa fa-cab"> </p></h1>
+	    			<h1 class="page-header">${RiderName} <p class="fa fa-cab"> </p></h1>
 	    		</div>
 	    </div>
 	    <div class="row">
@@ -174,6 +179,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    		
                                     	   <c:forEach var="allParcels" items="${allParcelAvailable}">
                                     	   		<tr>
 	                                            <td>${allParcels.id}</td>
@@ -183,7 +189,8 @@
 	                                            <td>${allParcels.address.zipCode}</td>
 	                                            <td>${allParcels.address.phone}</td>
 	                                            <td>
-	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${allParcels.id}')">Select</button>
+	                                            		<button type="button" class="btn btn-outline btn-primary" 
+	                                            		onclick="selectParcel('${RiderID}', '${allParcels.id}');">Select</button>
 	                                            </td>
                                         		</tr>		
                                     	   </c:forEach>

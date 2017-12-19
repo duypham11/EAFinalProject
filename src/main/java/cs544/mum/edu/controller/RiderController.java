@@ -1,7 +1,5 @@
 package cs544.mum.edu.controller;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import cs544.mum.edu.domain.Parcel;
@@ -79,22 +76,7 @@ public class RiderController {
 			return "/rider/riderSignup";
 		}
 		
-		//MultipartFile employeePhoto = rider.getPhoto();
-//		String rootDirectory = servletContext.getRealPath("/");
 		String userUID = UUID.randomUUID().toString();
-		
-//		if (employeePhoto != null && !employeePhoto.isEmpty()) {
-//			try {
-//				
-//				String photoURL = rootDirectory + "resources/images/" + userUID + ".png";
-//				employeePhoto.transferTo(new File(photoURL));
-//				rider.setPhotoURL(userUID);
-//				
-//			} catch (Exception e) {
-//				throw new RuntimeException("Employee photo saving failed", e);
-//				//throw new UnableToUploadPhotoException("Employee photo saving failed");
-//			}
-//		}
 		
 		Role role = new Role();
 		role.setUsername(rider.getEmail());
@@ -122,7 +104,8 @@ public class RiderController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         Rider rider = riderService.findRiderByUserName(username);
-        
+        model.addAttribute("RiderName", rider.getFirstName() + " " + rider.getLastName());
+        model.addAttribute("RiderID", rider.getRider_Id());
         
 		List<Parcel> parcelList = rider.getNotDoneParcelList();
 		model.addAttribute("notDoneParcelList", parcelList);
@@ -136,14 +119,12 @@ public class RiderController {
 		return "rider/riderHome";
 	}
 	@RequestMapping(value = "/completeParcel/{parcelId}/{parcelTrackNumber}", method = RequestMethod.POST)
-	public @ResponseBody Parcel completedParcel(
+	public @ResponseBody String completedParcel(
 			@PathVariable(value = "parcelId") Long parcelId,
 			@PathVariable(value = "parcelTrackNumber") String parcelTrackNumber
 	) {
 		Parcel parcel = parcelService.find(parcelId);
 		
-		//System.out.println("=======start=====" + parcelId + "====" + parcelTrackNumber);
-
 		if (!parcelTrackNumber.equalsIgnoreCase(parcel.getTrackNumber())) {
 			throw new ParcelNotFoundException("Parcel not found");
 		}
@@ -152,7 +133,36 @@ public class RiderController {
 		parcel.setStatus(ps);
 
 		parcelService.update(parcel);
-		System.out.println("=======done=====" + parcelId + "====" + parcelTrackNumber);
-		return parcel;
+		
+//		JSONObject jsonResponse = new JSONObject();
+//		jsonResponse.put("sucess", "true");
+		
+		//System.out.println("=======done=====" + parcelId + "====" + parcelTrackNumber + "===" + jsonResponse.toString());
+		return "{\"sucess\":\"true\"}";//jsonResponse.toString();
+	}
+	
+	@RequestMapping(value = "/selectParcel/{riderId}/{parcelId}", method = RequestMethod.POST)
+	public @ResponseBody String selectedParcel(
+			@PathVariable(value = "riderId") Long riderId,
+			@PathVariable(value = "parcelId") Long parcelId) {
+		
+		System.out.println("=======selectedParcel========"+riderId+"============" + parcelId);
+		Parcel parcel = parcelService.find(parcelId);
+		
+		ParcelStatus ps = parcelStatusService.findByStatus("RIDING");
+		
+		parcel.setRider(riderService.getRider(riderId));
+		parcel.setStatus(ps);
+		parcelService.update(parcel);
+		return "{\"sucess\":\"true\"}";
+	}
+	
+	@RequestMapping(value = "/select123Parcel1/{riderId}", method = RequestMethod.POST)
+	public @ResponseBody String selectedParcel1(
+			@PathVariable(value = "riderId") Long riderId) {
+		
+		System.out.println("=======selectedParcel==11111111======"+riderId+"============");
+
+		return "{\"sucess\":\"true\"}";
 	}
 }

@@ -2,25 +2,25 @@ $(document).ready(function(){
 	
 	var contextRoot = "/" + window.location.pathname.split('/')[1];
 	
-	acceptOrder = function(deliveryOrderId) {
-				
+	selectParcel = function(riderId, parcelDeliverId) {
+
 		$.ajax({
 			type : 'post',
-			url : contextRoot + '/acceptOrderDelivery/' + deliveryOrderId,
+			url : contextRoot + '/selectParcel/' + riderId + '/' + parcelDeliverId,
 			dataType : "json",
 			contentType : 'application/json',
 			success : function(response) {
-				alert("Order accepted");
+				alert("Parcel has been selected");
 				
 				location.reload();
 				
 			},
 			error : function(errorObject) {
-				alert("There is an error with this order");
+				alert("There is an error with this parcel");
 			}
 		});
 	}
-	
+
 	completedParcel = function(parcelDeliverId) {
 		
 		$("#parcelDeliverNumber").html("" + parcelDeliverId);
