@@ -27,6 +27,7 @@ public class Username implements Serializable {
 	String password;
 	@Transient
 	String verifyPassword;
+	@Column(nullable = false, columnDefinition = "int default 0")
 	Boolean enabled;
 	
 	String UID;

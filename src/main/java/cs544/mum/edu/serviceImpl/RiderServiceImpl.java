@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cs544.mum.edu.domain.Rider;
+import cs544.mum.edu.domain.Store;
 import cs544.mum.edu.repository.RiderRepository;
 import cs544.mum.edu.repository.UsernameRepository;
 import cs544.mum.edu.service.RiderService;
@@ -84,4 +85,7 @@ public class RiderServiceImpl implements RiderService{
 		return riderRepository.findRiderByUsername(userName);
 	}
 
+	public List<Rider> findAll() {
+		return (List<Rider>)riderRepository.findAll();
+	}
 }

@@ -3,8 +3,11 @@ package cs544.mum.edu.service;
 import java.util.List;
 
 import cs544.mum.edu.domain.Rider;
+import cs544.mum.edu.domain.Store;
 
 public interface RiderService {
+	
+	public List<Rider> findAll();
 	void createRider(Rider rider);
 	Rider getRider(long id);
 	Iterable<Rider> getAllRider();

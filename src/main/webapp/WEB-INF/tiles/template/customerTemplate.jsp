@@ -65,13 +65,14 @@
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
 						<li class="sidebar-search">
-							<form action="track" method="get">
+							<form action="trackParcel" method="get">
 								<div class="input-group custom-search-form">
 
 									<input type="text" class="form-control"
-										placeholder="Track No i.e 123 xxx xxx" name="number">
+										placeholder="Track No i.e 123 xxx xxx" name="tracknumber">
 									<span class="input-group-btn">
 										<button class="btn btn-default" type="submit">
+<!--  											<button class="btn btn-primary" onclick="location.href='/FlashDelivery/trackParcel/87659'">-->
 											<i class="fa fa-search"></i>
 										</button>
 									</span>

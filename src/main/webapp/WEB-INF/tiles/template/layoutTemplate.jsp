@@ -180,10 +180,10 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> </i><spring:message code="home.sidebar.Dashboard.manageCategory"/><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<spring:url value='/approve'/>" ></i><spring:message code="home.sidebar.Dashboard.store"/></a>
+                                    <a href="<spring:url value='/fetchstore'/>" ></i><spring:message code="home.sidebar.Dashboard.store"/></a>
                                 </li>
                                 <li>
-                                    <a href="<spring:url value='/approve'/>"></i><spring:message code="home.sidebar.Dashboard.delivery"/></a>
+                                    <a href="<spring:url value='/fetchrider'/>"></i><spring:message code="home.sidebar.Dashboard.delivery"/></a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

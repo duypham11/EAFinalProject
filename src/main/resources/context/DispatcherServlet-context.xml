@@ -112,4 +112,24 @@
 		<property name="maxUploadSize" value="10240000" />
 	</bean>
 
+	<bean id="handlerMapping"
+      class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+    <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+    <property name="useSuffixPatternMatch" value="false"/>
+	</bean>
+	
+	 <bean id="contentNegotiationManager"  class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true" />
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="useJaf" value="false"/>
+        <property name="defaultContentType" value="text/html" />
+
+        <property name="mediaTypes">
+            <map>
+               <entry key="html" value="text/html"/>
+                <entry key="json" value="application/json"/>
+           </map>
+        </property>
+    </bean>
+
 </beans>
