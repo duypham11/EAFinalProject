@@ -15,7 +15,7 @@ INSERT INTO Role (username, role) VALUES ('duynp@gmail.com', 'ROLE_RIDER');
 -- to insert data for profile of users at different tables
 INSERT INTO  Admin (firstname, lastname,title,username) VALUES ('Khlok','Sam','Mr.', 'admin@gmail.com');
 INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUES ('rider@gmail.com','Camen','Rider', '7ad8f775-665e-4af2-a5ca-b36066f36bb6', 'rider@gmail.com',0,0);
-INSERT INTO  Store (name,firstname, lastname,username,note,email,address,phone) VALUES ('Panda Chinese Food','Sam','Khlok','store@gmail.com', 'great store', 'khlok.samphors@gmail.com','address 1 2 3','1012212122');
+INSERT INTO  Store (name,firstname, lastname,username,note,email,address,phone) VALUES ('Panda Chinese Food','Sam','Khlok','store@gmail.com', 'great store', 'store@gmail.com','address 1 2 3','1012212122');
 INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUES ('duynp@gmail.com','Duy','Pham', '7ad8f775-665e-4af2-a5ca-b36066f36bb6', 'duynp@gmail.com',0,0);
 
 

@@ -27,9 +27,10 @@
 							<td>${parcel.getAddressAsString()}</td>
 							<td>${parcel.status.status}</td>
 							<td class="text-center">
-								<button class="btn btn-primary"
-									onclick="sendRequest('${parcel.id}')" disabled>Cancel
-									Request</button>
+								<c:if test="${parcel.status.status == 'NEW'}">
+									<button class="btn btn-primary"
+									onclick="cancelRiderRequest('${parcel.getId()}')">Cancel Request</button>
+								</c:if>
 							</td>
 						</tr>
 					</c:forEach>

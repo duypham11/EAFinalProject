@@ -1,12 +1,14 @@
 package cs544.mum.edu.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Address {
+public class Address implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	String address;
 	String zipCode;
 	String state;

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	// to get the profile
 	var getProfile = function (){
 	   	var contextRoot = "/" + window.location.pathname.split( '/' )[1];
 		$.ajax({
@@ -35,6 +36,32 @@ $(document).ready(function(){
 		});
 	};
 	
-	$("#profile").click(getProfile);
+	// to cancel the request
+	cancelRiderRequest = function(id){
+		console.log("cancel rider request " + id);
+	   	var contextRoot = "/" + window.location.pathname.split( '/' )[1];
+		$.ajax({
+			type : 'GET',
+			url : contextRoot + '/cancelRiderRequest/'+id,
+			dataType : 'json',
+			contentType : 'application/json',
+			success: function(respond){
+				console.log(respond);
+				alert(respond.message);
+				if(respond.status == 'SUCCESS'){
+					window.location.reload();
+				}
+				
+				
+			},
+			error : function(error) {
+				console.debug(error);
+				alert(error.message);
+			}
+		});
+	};
+	
+	$("#btnProfile").click(getProfile);
+	
 });
 	
