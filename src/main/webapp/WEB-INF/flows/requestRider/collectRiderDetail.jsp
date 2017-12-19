@@ -6,11 +6,11 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <tiles:insertDefinition name="storeLayout">
-	<tiles:putAttribute name="title">Request List</tiles:putAttribute>
+	<tiles:putAttribute name="title">Request a Rider</tiles:putAttribute>
 	<tiles:putAttribute name="body">
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
-				<div class="panel-heading">Order Delivery</div>
+				<div class="panel-heading">Request Form</div>
 				<div class="panel-body">
 					<div class="stepwizard">
 						<div class="stepwizard-row setup-panel">
@@ -44,7 +44,7 @@
 							</div>
 						</div>
 					</div>
-					<form:form modelAttribute="orderDelivery" class="form-horizontal">
+					<form:form modelAttribute="parcel" class="form-horizontal">
 						<fieldset>
 							<legend>Rider List</legend>
 							<div class="table-responsive">
@@ -59,7 +59,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>${rider.id}</td>
+											<td>${rider.rider_Id}</td>
 											<td>${rider.firstName}</td>
 											<td>${rider.lastName}</td>
 											<%-- <td class="text-center">
@@ -70,25 +70,46 @@
 								</table>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="customerName">Customer
-									Name</label>
+								<label class="control-label col-lg-2"
+									for="customerName">Customer Name</label>
 								<div class="col-lg-10">
-									<form:input path="customerName" type="text"
-										class="form:input-large" />
+									<form:input id="customerName" path="customerName" type="text"
+										class="form-control" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="address">Customer
-									Address</label>
-								<div class="col-lg-10">
-									<form:input path="address" type="text" class="form:input-large" />
-								</div>
-							</div>
+                                 <label class="control-label col-lg-2">Customer Address</label>
+                                 <div class="col-lg-10">
+                                 	<form:input class="form-control" placeholder="i.e 1000th 4th North Street, Fairfield, 52557, IA " path="address.address"/>
+                                 	<form:errors path="address.address" cssStyle="color : red;" />
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <label class="control-label col-lg-2">Customer Zipcode</label>
+                                 <div class="col-lg-10">
+                                 	<form:input class="form-control" placeholder="52557" path="address.zipCode"/>
+                                 	<form:errors path="address.zipCode" cssStyle="color : red;" />
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <label class="control-label col-lg-2">Customer State</label>
+                                 <div class="col-lg-10">
+                                 	<form:input class="form-control" placeholder="Iowa" path="address.state"/>
+                                 	<form:errors path="address.state" cssStyle="color : red;" />
+                                 </div>
+                             </div>
+                             <div class="form-group">
+                                 <label class="control-label col-lg-2">Customer Phone</label>
+                                 <div class="col-lg-10">
+                                 	<form:input class="form-control" placeholder="5157705918" path="address.phone"/>
+                                 	<form:errors path="address.phone" cssStyle="color : red;" />
+                                 </div>
+                             </div>
 							<div class="form-group">
-								<label class="control-label col-lg-2" for="email">Customer
-									Email</label>
+								<label class="control-label col-lg-2" for="email">Email</label>
 								<div class="col-lg-10">
-									<form:input path="email" type="text" class="form:input-large" />
+									<form:input id="email" path="email" type="text"
+										class="form-control"/>
 								</div>
 							</div>
 							<input type="hidden" name="_flowExecutionKey"

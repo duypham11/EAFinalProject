@@ -6,11 +6,11 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <tiles:insertDefinition name="storeLayout">
-	<tiles:putAttribute name="title">Request List</tiles:putAttribute>
+	<tiles:putAttribute name="title">Request a Rider</tiles:putAttribute>
 	<tiles:putAttribute name="body">
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
-				<div class="panel-heading">Order Delivery</div>
+				<div class="panel-heading">Request Form</div>
 				<div class="panel-body">
 					<form class="form-horizontal">
 						<fieldset>
