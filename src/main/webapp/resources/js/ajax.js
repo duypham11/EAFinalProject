@@ -61,6 +61,31 @@ $(document).ready(function(){
 		});
 	};
 	
+	// to rate the rider
+	rateRider = function(el,id){
+		console.log("rate " + el.value +" for rider id "+ id);
+	   	var contextRoot = "/" + window.location.pathname.split( '/' )[1];
+		$.ajax({
+			type : 'GET',
+			url : contextRoot + '/rateRider/'+el.value +'/'+id,
+			dataType : 'json',
+			contentType : 'application/json',
+			success: function(respond){
+				console.log(respond);
+				alert(respond.message);
+				if(respond.status == 'SUCCESS'){
+					window.location.reload();
+				}
+				
+				
+			},
+			error : function(error) {
+				console.debug(error);
+				alert(error.message);
+			}
+		});
+	};
+	
 	$("#btnProfile").click(getProfile);
 	
 });

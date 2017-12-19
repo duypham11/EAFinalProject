@@ -24,11 +24,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cs544.mum.edu.domain.Store;
 import cs544.mum.edu.service.ParcelService;
 import cs544.mum.edu.service.ParcelStatusService;
+import cs544.mum.edu.service.RiderService;
 import cs544.mum.edu.service.StoreService;
 import cs544.mum.edu.domain.Address;
 import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.ParcelStatus;
 import cs544.mum.edu.domain.Result;
+import cs544.mum.edu.domain.Rider;
 import cs544.mum.edu.domain.Role;
 
 @Controller
@@ -38,6 +40,9 @@ public class StoreController {
 	
 	@Autowired
 	ParcelService parcelService;
+	
+	@Autowired
+	RiderService riderService;
 	
 	@RequestMapping(value = {"/store"}, method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ROLE_STORE')")
@@ -145,5 +150,23 @@ public class StoreController {
 		}
 		
 		return result;
+	}
+	
+	@RequestMapping(value="/rateRider/{rate}/{rider_id}", method = RequestMethod.GET)
+	@PreAuthorize("hasRole('ROLE_STORE')")
+	public @ResponseBody Result rateRider(@PathVariable("rate") int rate, @PathVariable("rider_id") Long rider_id) {
+		Result result = new Result();
+		try {
+			Rider rider = riderService.getRider(rider_id);
+			rider.rate(rate);
+			riderService.updateRider(rider);
+			
+			result.setStatus(Result.Status.SUCCESS);
+			result.setMessage("Rate for rider - " + rider_id + " successfully done.");
+		}catch(Exception e) {
+			result.setMessage("Fail to rate this rider\n" + e.getMessage());
+		}
+		
+ 		return result;
 	}
 }

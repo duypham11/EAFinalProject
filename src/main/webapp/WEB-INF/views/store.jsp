@@ -35,6 +35,21 @@
 									<button class="btn btn-primary btn-outline"
 									onclick="cancelRiderRequest('${parcel.getId()}')">Cancel</button>
 								</c:if>
+								<c:if test="${parcel.status.status == 'DONE'}">
+									<select class="form-control" id="btnRate" onchange="rateRider(this,'${parcel.getRider().getRider_Id()}')" value="${parcel.getRider().getRate()}">
+										<option value="0">Rate</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+									</select>
+								</c:if>
 							</td>
 						</tr>
 					</c:forEach>
