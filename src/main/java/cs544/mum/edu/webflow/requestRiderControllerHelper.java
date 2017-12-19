@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import cs544.mum.edu.domain.Address;
 import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.ParcelStatus;
 import cs544.mum.edu.domain.Rider;
@@ -34,32 +35,36 @@ public class requestRiderControllerHelper {
 	@Autowired
 	EmailService emailService;
 	
-	public Parcel saveParcel(Parcel parcel, Rider rider) {
-		ParcelStatus parcelStatus = new ParcelStatus();
-		parcelStatus.setId(new Long(1));
-		
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-		Store res =	 storeService.findByUsername(username);
-		
-		parcel.setRider(rider);
-		parcel.setStatus(parcelStatus);
-		parcel.setStore(res);
-		parcel.setTrackNumber(parcelService.getNextTrackNo());
-		
-		return parcelService.save(parcel);
-	}
-	
 	public Parcel initiate() {
 		System.out.println("webflow init");
 		Parcel parcel = new Parcel();
+		parcel.setAddress(new Address());
 		return parcel;
 	}
 	
 	public Rider getAvailableRider(){
 		List<Rider> list = riderService.getAvailableRider();
+		System.out.println(list.get(0));
 
 		return list.get(0);
+	}
+	
+	public Parcel saveParcel(Parcel parcel, Rider rider) {
+		//init a status
+		ParcelStatus parcelStatus = new ParcelStatus();
+		parcelStatus.setId(new Long(1));
+		
+		//get store
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+		Store store =	 storeService.findByUsername(username);
+		
+		parcel.setRider(rider);
+		parcel.setStatus(parcelStatus);
+		parcel.setStore(store);
+		parcel.setTrackNumber(parcelService.getNextTrackNo());
+		
+		return parcelService.save(parcel);
 	}
 	
 	public void sendOutNotifcation(Parcel parcel, Rider rider) {
@@ -92,7 +97,7 @@ public class requestRiderControllerHelper {
 		emailToStore.setTo(res.getEmail());
 		emailToStore.setSubject("A rider request " + parcel.getTrackNumber());
 		emailToStore.setText("A rider has been assigned to you, " + rider.getFirstName());
-		emailService.sendEmail(emailToStore);
+//		emailService.sendEmail(emailToStore);
 	}
 	
 }

@@ -12,6 +12,9 @@ import cs544.mum.edu.domain.Parcel;
 @Repository
 public interface ParcelRepository extends CrudRepository<Parcel, Long> {
 	
+	@Query(value = "SELECT * FROM Parcel p, ParcelStatus ps where p.status_id = ps.id and ps.status like ?1", nativeQuery = true)
+	public List<Parcel> findParcelByParcelStatus(String status);
+	
 	@Query(value = "SELECT * FROM Parcel WHERE rider_id = ?1", nativeQuery = true)
 	public List<Parcel> listParcelsByRider(Long id);
 	

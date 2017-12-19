@@ -8,6 +8,11 @@
 <tiles:insertDefinition name="customerLayout">
 	<tiles:putAttribute name="title">Parcel Tracking</tiles:putAttribute>
 	<tiles:putAttribute name="body">
+	<c:choose>
+	<c:when test="${empty trackedParcel}">
+        Not Valid Tracking Number.
+    </c:when>
+    <c:otherwise>
 		<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
@@ -47,6 +52,8 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            </c:otherwise>
+                </c:choose>
             <!-- /.row -->
 	</tiles:putAttribute>
 </tiles:insertDefinition>

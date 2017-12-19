@@ -53,9 +53,9 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                		<div class="panel-body">
+<!--             <div class="navbar-default sidebar" role="navigation"> -->
+<!--                 <div class="sidebar-nav navbar-collapse"> -->
+<!--                 		<div class="panel-body"> -->
 <%--                 			<img class="img-circle" alt="Rider photo" src="${pageContext.request.contextPath}/resources/images/${rider.photoURL}.png" width="100"/> --%>
 <%-- 	                		<h3>${rider.firstName}</h3> --%>
                 		</div>
@@ -68,9 +68,9 @@
 <!--                             <a href="index.html"><i class="fa fa-list-ul fa-fw"></i> Request List</a> -->
 <!--                         </li> -->
 <!--                     </ul> -->
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+<!--                 </div> -->
+<!--                 /.sidebar-collapse -->
+<!--             </div> -->
             <!-- /.navbar-static-side -->
         </nav>
 	<div id="page-wrapper">
@@ -108,7 +108,7 @@
 	                                            <td>${parcel.address.zipCode}</td>
 	                                            <td>${parcel.address.phone}</td>
 	                                            <td>
-	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${order.id}')">Complete</button>
+	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="completedParcel('${parcel.id}')">Complete</button>
 	                                            </td>
                                         		</tr>		
                                     	   </c:forEach>
@@ -134,7 +134,6 @@
                                             <th>#</th>
                                             <th>Store</th>
                                             <th>Customer</th>
-
                                             <th>Address</th>
                                         </tr>
                                     </thead>
@@ -154,6 +153,47 @@
             		</div>
         		</div>
         </div>
+        
+	    <div class="row">
+        		<div class="col-lg-12">
+            		<div class="panel panel-primary">
+                		<div class="panel-heading">
+                     	All Available Parcels
+                 	</div>
+                 	<div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Store</th>
+                                            <th>Customer</th>
+                                            <th>Address</th>
+                                            <th>ZipCode</th>
+                                            <th>Phone</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	   <c:forEach var="allParcels" items="${allParcelAvailable}">
+                                    	   		<tr>
+	                                            <td>${allParcels.id}</td>
+	                                            <td>${allParcels.store.name}</td>
+	                                            <td>${allParcels.customerName}</td>
+	                                            <td>${allParcels.address.address}</td>
+	                                            <td>${allParcels.address.zipCode}</td>
+	                                            <td>${allParcels.address.phone}</td>
+	                                            <td>
+	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${allParcels.id}')">Select</button>
+	                                            </td>
+                                        		</tr>		
+                                    	   </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+            		</div>
+        		</div>
+        </div>        
 	</div>
 	</div>
 	<!-- Modal -->
@@ -165,18 +205,18 @@
                       <h4 class="modal-title" id="myModalLabel">Delivery completion</h4>
                   </div>
                   <div class="modal-body" id="modalBody">
-                  	<p>Confirm the delivery order #<span id="orderDeliveryNumber"></span> is complete.</p>
+                  	<p>Confirm the delivery order #<span id="parcelDeliverNumber"></span> is complete.</p>
                   	<form action="">
                   		<div class="form-group">
                          	<label>Customer's order track number</label>
-                             <input class="form-control" type="text" id="orderId">
+                             <input class="form-control" type="text" id="parcelId">
                          </div>
                   	</form>
                   	<div class='alert alert-success alert-dismissable' id="emptyError" hidden> Enter a valid delivery order ID </div>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-primary" onclick="confirmOrder()">Finish</button>
+                      <button type="button" class="btn btn-primary" onclick="confirmParcel()">Finish</button>
                   </div>
               </div>
               <!-- /.modal-content -->

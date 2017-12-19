@@ -36,8 +36,23 @@
 	                                        </div>
 	                                        <div class="form-group col-lg-4">
 	                                            <label>Store Address</label>
-	                                            <form:input class="form-control" placeholder="i.e 1000th 4th North Street, Fairfield, 52557, IA " path="address"/>
-	                                            <form:errors path="address" cssStyle="color : red;" />
+	                                            <form:input class="form-control" placeholder="i.e 1000th 4th North Street, Fairfield, 52557, IA " path="address.address"/>
+	                                            <form:errors path="address.address" cssStyle="color : red;" />
+	                                        </div>
+	                                        <div class="form-group col-lg-4">
+	                                            <label>Store Zipcode</label>
+	                                            <form:input class="form-control" placeholder="52557" path="address.zipCode"/>
+	                                            <form:errors path="address.zipCode" cssStyle="color : red;" />
+	                                        </div>
+	                                        <div class="form-group col-lg-4">
+	                                            <label>Store State</label>
+	                                            <form:input class="form-control" placeholder="Iowa" path="address.state"/>
+	                                            <form:errors path="address.state" cssStyle="color : red;" />
+	                                        </div>
+	                                        <div class="form-group col-lg-4">
+	                                            <label>Store Phone</label>
+	                                            <form:input class="form-control" placeholder="5157705918" path="address.phone"/>
+	                                            <form:errors path="address.phone" cssStyle="color : red;" />
 	                                        </div>
 	                                        <div class="form-group col-lg-4">
 	                                            <label>Email</label>

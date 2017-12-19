@@ -21,5 +21,5 @@ public interface ParcelService {
 	List<Parcel> getParcelsByStoreId(Long id);
 	
 	String getNextTrackNo();
-
+	List<Parcel> findParcelByParcelStatus(String status);
 }

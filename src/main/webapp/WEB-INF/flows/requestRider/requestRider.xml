@@ -31,7 +31,7 @@
 	</view-state>
 	
 	<action-state id="processSelectRider">
-		<evaluate expression="requestRiderControllerHelper.saveOrderDelivery(parcel, rider)" result="parcel"/>
+		<evaluate expression="requestRiderControllerHelper.saveParcel(parcel, rider)" result="parcel"/>
 		<transition to="processNotification" />
 	</action-state>
 	

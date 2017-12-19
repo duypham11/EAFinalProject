@@ -16,7 +16,7 @@ public class EmailServiceImpl implements EmailService {
 	@Autowired
 	EmailRepsitory emailRepository;
 	@Override
-	@PreAuthorize("hasRole('ROLE_RESTAURANT') or hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_STORE') or hasRole('ROLE_ADMIN')")
 	public void sendEmail(SimpleMailMessage email) {
 		// TODO Auto-generated method stub
 		sender.send(email);

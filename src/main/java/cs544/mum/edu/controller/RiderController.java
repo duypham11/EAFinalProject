@@ -18,12 +18,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import cs544.mum.edu.domain.Parcel;
+import cs544.mum.edu.domain.ParcelStatus;
 import cs544.mum.edu.domain.Rider;
 import cs544.mum.edu.domain.Role;
+import cs544.mum.edu.exception.ParcelNotFoundException;
+import cs544.mum.edu.service.ParcelService;
+import cs544.mum.edu.service.ParcelStatusService;
 import cs544.mum.edu.service.RiderService;
 import cs544.mum.edu.service.RoleService;
 import cs544.mum.edu.validator.PasswordValidator;
@@ -43,8 +48,14 @@ public class RiderController {
 	@Autowired
 	ServletContext servletContext;
 	
-	//@Autowired
-	//RoleService roleService;
+	@Autowired
+	RoleService roleService;
+	
+	@Autowired
+	ParcelService parcelService;
+	
+	@Autowired
+	ParcelStatusService parcelStatusService;
 	
 	@RequestMapping(value="/rider/{id}", method = RequestMethod.GET)
 	public ModelAndView homePage(@PathVariable("id") long id) {		
@@ -88,16 +99,14 @@ public class RiderController {
 		Role role = new Role();
 		role.setUsername(rider.getEmail());
 		role.setRole("ROLE_RIDER");
-		List<Role> roles = new ArrayList<Role>();
 		
 		System.out.println("======/rider/processRider====="+rider.getEmail()+"=========" + userUID);
 
-		rider.getUserCredentials().setRole(roles);
+		rider.getUserCredentials().addRole(role);
 		rider.getUserCredentials().setUsername(rider.getEmail());
 		rider.getUserCredentials().setUID(userUID);
-		rider.getUserCredentials().setEnabled(false);
+		rider.getUserCredentials().setEnabled(true);
 		riderService.createRider(rider);
-		//roleService.save(role);
 		
 		return "redirect:/rider/riderSuccess";
 	}
@@ -114,14 +123,36 @@ public class RiderController {
         String username = auth.getName();
         Rider rider = riderService.findRiderByUserName(username);
         
+        
 		List<Parcel> parcelList = rider.getNotDoneParcelList();
 		model.addAttribute("notDoneParcelList", parcelList);
 		
 		List<Parcel> completedParcelList = rider.getDoneParcelList();
 		model.addAttribute("completedParcelList", completedParcelList);
 		
-		model.addAttribute("rider", rider);
+		List<Parcel> allParcelAvailable = parcelService.findParcelByParcelStatus("NEW");
+		model.addAttribute("allParcelAvailable", allParcelAvailable);
 		
 		return "rider/riderHome";
+	}
+	@RequestMapping(value = "/completeParcel/{parcelId}/{parcelTrackNumber}", method = RequestMethod.POST)
+	public @ResponseBody Parcel completedParcel(
+			@PathVariable(value = "parcelId") Long parcelId,
+			@PathVariable(value = "parcelTrackNumber") String parcelTrackNumber
+	) {
+		Parcel parcel = parcelService.find(parcelId);
+		
+		//System.out.println("=======start=====" + parcelId + "====" + parcelTrackNumber);
+
+		if (!parcelTrackNumber.equalsIgnoreCase(parcel.getTrackNumber())) {
+			throw new ParcelNotFoundException("Parcel not found");
+		}
+
+		ParcelStatus ps = parcelStatusService.findByStatus("DONE");
+		parcel.setStatus(ps);
+
+		parcelService.update(parcel);
+		System.out.println("=======done=====" + parcelId + "====" + parcelTrackNumber);
+		return parcel;
 	}
 }

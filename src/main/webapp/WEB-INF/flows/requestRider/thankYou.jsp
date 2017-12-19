@@ -6,11 +6,11 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <tiles:insertDefinition name="storeLayout">
-	<tiles:putAttribute name="title">Request List</tiles:putAttribute>
+	<tiles:putAttribute name="title">Request a Rider</tiles:putAttribute>
 	<tiles:putAttribute name="body">
 		<div class="col-lg-12">
 			<div class="panel panel-primary">
-				<div class="panel-heading">Order Delivery</div>
+				<div class="panel-heading">Request Form</div>
 				<div class="panel-body">
 					<div class="stepwizard">
 						<div class="stepwizard-row setup-panel">
@@ -48,8 +48,8 @@
 						<fieldset>
 							<legend>Thank You</legend>
 							<h4 class="alert alert-success">
-								Thanks for the order - ${orderDelivery.id}. The tracking number
-								is ${orderDelivery.trackNumber} and our rider detail is as
+								Thanks for the order - ${parcel.id}. The tracking number
+								is ${parcel.trackNumber} and our rider detail is as
 								following :
 								</h3>
 								<div class="form-group">

@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -77,6 +75,10 @@ public class Username implements Serializable {
 	public void setRole(List<Role> role) {
 		this.role = role;
 	}
+	
+	public void addRole(Role role) {
+		this.role.add(role);
+	}	
 
 	public String getUID() {
 		return UID;

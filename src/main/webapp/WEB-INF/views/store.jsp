@@ -15,6 +15,8 @@
 						<th>Track No</th>
 						<th>Customer Name</th>
 						<th>Address</th>
+                         <th>ZipCode</th>
+                         <th>Phone</th>
 						<th>Status</th>
 						<th></th>
 					</tr>
@@ -24,12 +26,15 @@
 						<tr>
 							<td>${parcel.trackNumber}</td>
 							<td>${parcel.customerName}</td>
-							<td>${parcel.getAddressAsString()}</td>
+							<td>${parcel.address.address}</td>
+							<td>${parcel.address.zipCode}</td>
+	                         <td>${parcel.address.phone}</td>
 							<td>${parcel.status.status}</td>
 							<td class="text-center">
-								<button class="btn btn-primary"
-									onclick="sendRequest('${parcel.id}')" disabled>Cancel
-									Request</button>
+								<c:if test="${parcel.status.status == 'NEW'}">
+									<button class="btn btn-primary btn-outline"
+									onclick="cancelRiderRequest('${parcel.getId()}')">Cancel</button>
+								</c:if>
 							</td>
 						</tr>
 					</c:forEach>
