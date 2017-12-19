@@ -69,34 +69,34 @@ public class requestRiderControllerHelper {
 	
 	public void sendOutNotifcation(Parcel parcel, Rider rider) {
 		
-//		//one copy to customer 
-//		SimpleMailMessage emailToCust = new SimpleMailMessage();
-//		
-//		emailToCust.setTo(parcel.getEmail());
-//		emailToCust.setSubject("Order Complete " + parcel.getTrackNumber());
-//		emailToCust.setText("your tracking number is " + parcel.getTrackNumber());
-//		emailService.sendEmail(emailToCust);
-//		
-//		//one copy for rider
-//		SimpleMailMessage emailToRider = new SimpleMailMessage();
-//		System.out.println("rider email " + rider.getEmail());
-//		
-//		emailToRider.setTo(rider.getEmail());
-//		emailToRider.setSubject("Order Delivery Task " + parcel.getTrackNumber());
-//		emailToRider.setText("This task is for customer " + parcel.getCustomerName());
-//		emailService.sendEmail(emailToRider);
-//		
-//		//one copy for store owner
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        String username = auth.getName();
-//		Store res =	 storeService.findByUsername(username);
-//		
-//		SimpleMailMessage emailToStore = new SimpleMailMessage();
-//		System.out.println("store email " + res.getEmail());
-//		
-//		emailToStore.setTo(res.getEmail());
-//		emailToStore.setSubject("A rider request " + parcel.getTrackNumber());
-//		emailToStore.setText("A rider has been assigned to you, " + rider.getFirstName());
+		//one copy to customer 
+		SimpleMailMessage emailToCust = new SimpleMailMessage();
+		
+		emailToCust.setTo(parcel.getEmail());
+		emailToCust.setSubject("Order Complete " + parcel.getTrackNumber());
+		emailToCust.setText("your tracking number is " + parcel.getTrackNumber());
+		emailService.sendEmail(emailToCust);
+		
+		//one copy for rider
+		SimpleMailMessage emailToRider = new SimpleMailMessage();
+		System.out.println("rider email " + rider.getEmail());
+		
+		emailToRider.setTo(rider.getEmail());
+		emailToRider.setSubject("Order Delivery Task " + parcel.getTrackNumber());
+		emailToRider.setText("This task is for customer " + parcel.getCustomerName());
+		emailService.sendEmail(emailToRider);
+		
+		//one copy for store owner
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+		Store res =	 storeService.findByUsername(username);
+		
+		SimpleMailMessage emailToStore = new SimpleMailMessage();
+		System.out.println("store email " + res.getEmail());
+		
+		emailToStore.setTo(res.getEmail());
+		emailToStore.setSubject("A rider request " + parcel.getTrackNumber());
+		emailToStore.setText("A rider has been assigned to you, " + rider.getFirstName());
 //		emailService.sendEmail(emailToStore);
 	}
 	
