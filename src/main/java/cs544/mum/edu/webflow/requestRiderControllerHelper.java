@@ -74,7 +74,8 @@ public class requestRiderControllerHelper {
 		
 		emailToCust.setTo(parcel.getEmail());
 		emailToCust.setSubject("Order Complete " + parcel.getTrackNumber());
-		emailToCust.setText("your tracking number is " + parcel.getTrackNumber());
+		emailToCust.setText("your tracking number is " + parcel.getTrackNumber() 
+		+ "\n http://localhost:8080/edu/trackParcel?tracknumber="+parcel.getTrackNumber());
 		emailService.sendEmail(emailToCust);
 		
 		//one copy for rider
