@@ -1,19 +1,7 @@
 package cs544.mum.edu.model;
 
 import java.io.Serializable;
-
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import java.util.List;
 
 public class TrackParcelDTO implements Serializable {
 	
@@ -21,6 +9,7 @@ public class TrackParcelDTO implements Serializable {
 	private String customerName;
 	private String delieveryAddress;
 	private String delieveryStatus;
+	private List<String> historyLog;
 	
 	
 	
@@ -33,6 +22,8 @@ public class TrackParcelDTO implements Serializable {
 		this.delieveryAddress = delieveryAddress;
 		this.delieveryStatus = delieveryStatus;
 	}
+	
+	
 	public String getTrackingNumber() {
 		return trackingNumber;
 	}
@@ -57,4 +48,13 @@ public class TrackParcelDTO implements Serializable {
 	public void setDelieveryStatus(String delieveryStatus) {
 		this.delieveryStatus = delieveryStatus;
 	}
+
+
+	public List<String> getHistoryLog() {
+		return historyLog;
+	}
+	public void setHistoryLog(List<String> historyLog) {
+		this.historyLog = historyLog;
+	}
+	
 }
