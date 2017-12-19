@@ -108,7 +108,7 @@
 	                                            <td>${parcel.address.zipCode}</td>
 	                                            <td>${parcel.address.phone}</td>
 	                                            <td>
-	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="acceptOrder('${parcel.id}')">Complete</button>
+	                                            		<button type="button" class="btn btn-outline btn-primary" onclick="completedParcel('${parcel.id}')">Complete</button>
 	                                            </td>
                                         		</tr>		
                                     	   </c:forEach>
@@ -205,18 +205,18 @@
                       <h4 class="modal-title" id="myModalLabel">Delivery completion</h4>
                   </div>
                   <div class="modal-body" id="modalBody">
-                  	<p>Confirm the delivery order #<span id="orderDeliveryNumber"></span> is complete.</p>
+                  	<p>Confirm the delivery order #<span id="parcelDeliverNumber"></span> is complete.</p>
                   	<form action="">
                   		<div class="form-group">
                          	<label>Customer's order track number</label>
-                             <input class="form-control" type="text" id="orderId">
+                             <input class="form-control" type="text" id="parcelId">
                          </div>
                   	</form>
                   	<div class='alert alert-success alert-dismissable' id="emptyError" hidden> Enter a valid delivery order ID </div>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-primary" onclick="confirmOrder()">Finish</button>
+                      <button type="button" class="btn btn-primary" onclick="confirmParcel()">Finish</button>
                   </div>
               </div>
               <!-- /.modal-content -->
