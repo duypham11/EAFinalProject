@@ -52,6 +52,17 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+             <div class="table-responsive">
+             <table class="table table-striped table-bordered table-hover">
+                <tbody>
+               	<c:forEach var="history" items="${trackedParcel.historyLog}">
+              	   		<tr>
+              	   		<td>${history}</td>
+              	   		</tr>                        
+                  	</c:forEach>
+               </tbody>
+           </table>
+             </div>
             </c:otherwise>
                 </c:choose>
             <!-- /.row -->

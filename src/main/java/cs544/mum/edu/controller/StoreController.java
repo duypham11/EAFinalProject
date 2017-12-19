@@ -147,6 +147,8 @@ public class StoreController {
 			}catch(Exception e) {
 				result.setMessage(e.getMessage());
 			}
+		}else {
+			result.setMessage("Parcel does not belong to you.");
 		}
 		
 		return result;

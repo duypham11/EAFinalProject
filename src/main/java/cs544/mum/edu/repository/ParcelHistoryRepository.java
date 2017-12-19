@@ -8,9 +8,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import cs544.mum.edu.domain.Parcel;
+import cs544.mum.edu.domain.ParcelHistory;
 
 @Repository
-public interface ParcelRepository extends CrudRepository<Parcel, Long> {
+public interface ParcelHistoryRepository extends CrudRepository<ParcelHistory, Long> {
 	
 	@Query(value = "SELECT * FROM Parcel p, ParcelStatus ps where p.status_id = ps.id and ps.status like ?1", nativeQuery = true)
 	public List<Parcel> findParcelByParcelStatus(String status);
@@ -27,7 +28,10 @@ public interface ParcelRepository extends CrudRepository<Parcel, Long> {
 	@Query(value="SELECT * FROM Parcel WHERE store_id = ?1 ", nativeQuery = true)
 	public List<Parcel> listParcelsByStore(@Param("id") Long id);
 	
-	@Query(value="SELECT tracKNumber FROM Parcel order by trackingNO desc limit 1;", nativeQuery = true)
+	@Query(value="SELECT tracKNumber FROM Parcel order by tracKNumber desc limit 1;", nativeQuery = true)
 	public int getNextTrackNo();
+	
+	@Query(value = "SELECT * FROM ParcelHistory p WHERE trackingNumber = ?1 order by p.timestamp DESC", nativeQuery = true)
+	public List<ParcelHistory> parcelHistoryByTrackingNumber(String trackNumber);
 
 }
