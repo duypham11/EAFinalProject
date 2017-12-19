@@ -40,6 +40,7 @@ public class StoreController {
 	ParcelService parcelService;
 	
 	@RequestMapping(value = {"/store"}, method = RequestMethod.GET)
+	@PreAuthorize("hasRole('ROLE_STORE')")
 	public String store(Model model) {	
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
@@ -50,6 +51,7 @@ public class StoreController {
 	}
 	
 	@RequestMapping(value = {"/storeRequestRider"}, method = RequestMethod.GET)
+	@PreAuthorize("hasRole('ROLE_STORE')")
 	public String storeOrderDelivery(Locale locale, Model model) {	
 		return "storeRequestRider";
 	}
@@ -121,6 +123,7 @@ public class StoreController {
 	}
 	
 	@RequestMapping(value="/cancelRiderRequest/{id}", method = RequestMethod.GET, produces = "application/json")
+	@PreAuthorize("hasRole('ROLE_STORE')")
 	public @ResponseBody Result cancelRiderRequest(@PathVariable("id") Long id) {
 		Result result = new Result();
 		

@@ -97,7 +97,7 @@ public class requestRiderControllerHelper {
 		emailToStore.setTo(res.getEmail());
 		emailToStore.setSubject("A rider request " + parcel.getTrackNumber());
 		emailToStore.setText("A rider has been assigned to you, " + rider.getFirstName());
-//		emailService.sendEmail(emailToStore);
+		emailService.sendEmail(emailToStore);
 	}
 	
 }

@@ -13,6 +13,17 @@
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/index" access="permitAll" />
 		<security:intercept-url pattern="/login" access="permitAll" />
+		<security:intercept-url pattern="/storeSignup" access="permitAll" />
+		<security:intercept-url pattern="/storeSignupThank" access="permitAll" />
+		<security:intercept-url pattern="/store" access="hasAnyRole('ROLE_STORE')" />
+		<security:intercept-url pattern="/storeRequestRider" access="hasAnyRole('ROLE_STORE')" />
+		<security:intercept-url pattern="/requestRider" access="hasAnyRole('ROLE_STORE')" />
+		
+		<security:intercept-url pattern="/riderSignup" access="permitAll" />
+		<security:intercept-url pattern="/riderSuccess" access="permitAll" />
+		<security:intercept-url pattern="/riderHome" access="hasAnyRole('ROLE_RIDER')"/>
+		
+		<security:intercept-url pattern="/admin" access="hasAnyRole('ROLE_ADMIN')"/>
 
 			
 		<security:form-login login-page="/login"
