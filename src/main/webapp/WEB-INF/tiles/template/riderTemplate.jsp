@@ -30,6 +30,8 @@
 <script src="<spring:url value='/bootstrap/vendor/metisMenu/metisMenu.min.js'/>"></script>
 <!-- Custom Theme JavaScript -->
 <script src="<spring:url value='/bootstrap/dist/js/sb-admin-2.js'/>"></script>
+<script type="text/javascript" src="<spring:url value="/resources/js/ajax.js"/>"></script>
+
 
 </head>
 
@@ -56,8 +58,8 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a id="profile"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
+<!--                         <li><a id="btnProfile"><i class="fa fa-user fa-fw"></i> User Profile</a> -->
+<!--                         </li> -->
                         <li class="divider"></li>
                         <li>
                         		<spring:url value="/dologout" var="logout_url" />

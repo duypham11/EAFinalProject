@@ -45,6 +45,11 @@ public class RiderServiceImpl implements RiderService{
 	}
 
 	@Override
+	public void saveRider(Rider rider) {
+		riderRepository.save(rider);
+	}
+	
+	@Override
 	public void deleteRider(long id) {
 		riderRepository.delete(id);
 	}
@@ -87,5 +92,16 @@ public class RiderServiceImpl implements RiderService{
 
 	public List<Rider> findAll() {
 		return (List<Rider>)riderRepository.findAll();
+	}
+
+	@Override
+	public void updateRate(int rate, Rider rider) {
+		
+		int count = rider.getRateObj().getCount();
+		float rate2 = ((rider.getRate() * count) + rate)/(count+1);
+		count++;
+		riderRepository.updateRate(count, rate2, rider.getRider_Id());
+		
+		
 	}
 }

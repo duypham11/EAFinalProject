@@ -58,5 +58,42 @@ $(document).ready(function(){
 
 	}
 	
+	var getProfile = function (){
+	   	var contextRoot = "/" + window.location.pathname.split( '/' )[1];
+		$.ajax({
+			type : 'GET',
+			url : contextRoot + '/riderProfile',
+			dataType : 'json',
+			contentType : 'application/json',
+			success: function(respond){
+				console.log(respond);
+				$("#id").val(respond.id);
+				$("#firstName").val(respond.firstName);
+				$("#lastName").val(respond.lastName);
+				$("#address").val(respond.addressAsString);
+				$("#email").val(respond.email);
+				$("#rate").val(respond.rate);
+			},
+			error : function(error) {
+				console.debug(error);
+				console.log(error.responseJSON.errorType);
+				if (error.responseJSON.errorType == "ValidationError") {
+					var errors = error.responseJSON.errors;
+					$.each(errors, function(i, error){
+						$("#modalBody").append("<div class='alert alert-success alert-dismissable'>" +error+"</div>");
+					});
+				} else {
+					alert(error.responseJSON.errors(0));
+				}
+			}
+		}).then(function(){
+			if(respond !== null){
+				$("#myProfileModal").modal();
+			}
+		});
+	};
+	$("#btnRiderProfile").click(getProfile);
+
+	
 });
 	

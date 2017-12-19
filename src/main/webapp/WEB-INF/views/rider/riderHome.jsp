@@ -45,8 +45,8 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a id="profile"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
+<!--                         <li><a id="btnRiderProfile"><i class="fa fa-user fa-fw"></i> User Profile</a> -->
+<!--                         </li> -->
                         <li class="divider"></li>
                         <li>
                         		<spring:url value="/dologout" var="logout_url" />
@@ -226,6 +226,54 @@
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                       <button type="button" class="btn btn-primary" onclick="confirmParcel()">Finish</button>
+                  </div>
+              </div>
+              <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+      </div>
+     <!-- /.modal -->
+     
+      <div class="modal fade" id="myProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Profile Detail</h4>
+                  </div>
+                  <div class="modal-body" id="modalBody">
+                      <form role="form">
+                          <fieldset disabled>
+                          	<div class="form-group">
+                                  <label>ID:</label>
+                                  <input class="form-control" type="text" id="id">
+                              </div>
+                              <div class="form-group">
+                                  <label>First Name:</label>
+                                  <input class="form-control" type="text" id="firstName">
+                              </div>
+                              <div class="form-group">
+                                  <label>Last Name:</label>
+                                  <input class="form-control" type="text" id="lastName">
+                              </div>
+                              <div class="form-group">
+                                  <label>Address:</label>
+                                  <input class="form-control" type="text" id="address">
+                              </div>
+                              <div class="form-group">
+                                  <label>Email:</label>
+                                  <input class="form-control" type="text" id="email">
+                              </div>
+                              <div class="form-group">
+                                  <label>Rate:</label>
+                                  <textarea class="form-control" id="rate"></textarea>
+                              </div>
+                          </fieldset>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" disabled>Save</button>
                   </div>
               </div>
               <!-- /.modal-content -->

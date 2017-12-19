@@ -5,10 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Rate implements Serializable{
+public class Rate{
 
-	private static final long serialVersionUID = 1L;
-	
+
 	int count;
 	float rate;
 	

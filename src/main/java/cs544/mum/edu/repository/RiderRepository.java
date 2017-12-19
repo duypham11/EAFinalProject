@@ -27,5 +27,7 @@ public interface RiderRepository extends CrudRepository <Rider, Long> {
 			")" , nativeQuery = true)
 	public List<Rider> getAvailableRider();
 
+	@Query(value= "UPDATE rider SET count = ?1, rate = ?2 WHERE rider_Id = ?3", nativeQuery = true)
+	public void updateRate(int count, float rate, Long id);
 
 }

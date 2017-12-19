@@ -112,6 +112,9 @@ public class Rider implements Serializable{
 		return rate.rate;
 	}
 
+	public Rate getRateObj() {
+		return rate;
+	}
 	public float rate(int value) {
 		return this.rate.rate(value);
 	}

@@ -12,6 +12,9 @@ public interface RiderService {
 	Rider getRider(long id);
 	Iterable<Rider> getAllRider();
 	void updateRider(Rider rider);
+	void saveRider(Rider rider);
+	void updateRate(int rate, Rider rider);
+	
 	void deleteRider(long id);
 	void deleteRider(Rider rider);
 	Iterable<Rider> findRiderByPhone(String phoneNumber);

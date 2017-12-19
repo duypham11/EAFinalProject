@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.ParcelStatus;
 import cs544.mum.edu.domain.Rider;
 import cs544.mum.edu.domain.Role;
+import cs544.mum.edu.domain.Store;
 import cs544.mum.edu.exception.ParcelNotFoundException;
 import cs544.mum.edu.service.ParcelService;
 import cs544.mum.edu.service.ParcelStatusService;
@@ -86,12 +88,33 @@ public class RiderController {
 		rider.getUserCredentials().setUID(userUID);
 		rider.getUserCredentials().setEnabled(true);
 		riderService.createRider(rider);
-		
+		rider.setFirstName("nhungjhgn");
+		riderService.saveRider(rider);
 		return "redirect:/rider/riderSuccess";
 	}
 	@RequestMapping(value = "/rider/riderSuccess")
 	public String successRiderSignup() {
 		return "/rider/riderSuccess";
+	}
+	
+	@RequestMapping(value="/riderProfile", method = RequestMethod.GET, produces = "application/json")
+	//@PreAuthorize("hasRole('ROLE_RIDER')")
+	public @ResponseBody String getProfile() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        
+        Rider rider = riderService.findRiderByUserName(username); 
+        Rider rRider = new Rider();
+        
+        rRider.setRider_Id(rider.getRider_Id());
+        rRider.setFirstName(rider.getFirstName());
+        rRider.setLastName(rider.getLastName());
+        rRider.setAddress(rider.getAddress());
+        rRider.setEmail(rider.getEmail());
+        rRider.setRate(rider.getRateObj());
+        System.out.println(rRider);
+
+ 		return rRider.toString();
 	}
 	
 	// Rider home
@@ -130,7 +153,7 @@ public class RiderController {
 		parcel.setStatus(ps);
 
 		parcelService.update(parcel);
-
+		//sendOutDeliveredNotifcation(parcel);
 		return "{\"sucess\":\"true\"}";
 	}
 	
