@@ -58,7 +58,6 @@ public class RiderController {
 	public ModelAndView homePage(@PathVariable("id") long id) {		
 		ModelAndView model = new ModelAndView("/rider/pacerl_list");
 		List<Parcel> pacerlList = riderService.getRider(id).getParcelList();
-		System.out.println("======list=Parcel==" + pacerlList.size());
 		model.addObject("pacerl_list", pacerlList);		
 		return model;
 	}
@@ -82,8 +81,6 @@ public class RiderController {
 		role.setUsername(rider.getEmail());
 		role.setRole("ROLE_RIDER");
 		
-		System.out.println("======/rider/processRider====="+rider.getEmail()+"=========" + userUID);
-
 		rider.getUserCredentials().addRole(role);
 		rider.getUserCredentials().setUsername(rider.getEmail());
 		rider.getUserCredentials().setUID(userUID);
@@ -133,12 +130,8 @@ public class RiderController {
 		parcel.setStatus(ps);
 
 		parcelService.update(parcel);
-		
-//		JSONObject jsonResponse = new JSONObject();
-//		jsonResponse.put("sucess", "true");
-		
-		//System.out.println("=======done=====" + parcelId + "====" + parcelTrackNumber + "===" + jsonResponse.toString());
-		return "{\"sucess\":\"true\"}";//jsonResponse.toString();
+
+		return "{\"sucess\":\"true\"}";
 	}
 	
 	@RequestMapping(value = "/selectParcel/{riderId}/{parcelId}", method = RequestMethod.POST)
@@ -146,7 +139,6 @@ public class RiderController {
 			@PathVariable(value = "riderId") Long riderId,
 			@PathVariable(value = "parcelId") Long parcelId) {
 		
-		System.out.println("=======selectedParcel========"+riderId+"============" + parcelId);
 		Parcel parcel = parcelService.find(parcelId);
 		
 		ParcelStatus ps = parcelStatusService.findByStatus("RIDING");
@@ -154,15 +146,6 @@ public class RiderController {
 		parcel.setRider(riderService.getRider(riderId));
 		parcel.setStatus(ps);
 		parcelService.update(parcel);
-		return "{\"sucess\":\"true\"}";
-	}
-	
-	@RequestMapping(value = "/select123Parcel1/{riderId}", method = RequestMethod.POST)
-	public @ResponseBody String selectedParcel1(
-			@PathVariable(value = "riderId") Long riderId) {
-		
-		System.out.println("=======selectedParcel==11111111======"+riderId+"============");
-
 		return "{\"sucess\":\"true\"}";
 	}
 }

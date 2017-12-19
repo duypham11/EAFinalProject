@@ -96,6 +96,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Tracking Number</th>
                                             <th>Store</th>
                                             <th>Customer</th>
                                             <th>Address</th>
@@ -107,6 +108,7 @@
                                     	   <c:forEach var="parcel" items="${notDoneParcelList}">
                                     	   		<tr>
 	                                            <td>${parcel.id}</td>
+	                                            <td>${parcel.trackNumber}</td>
 	                                            <td>${parcel.store.name}</td>
 	                                            <td>${parcel.customerName}</td>
 	                                            <td>${parcel.address.address}</td>
