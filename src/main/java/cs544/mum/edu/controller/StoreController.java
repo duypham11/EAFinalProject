@@ -26,6 +26,7 @@ import cs544.mum.edu.service.ParcelService;
 import cs544.mum.edu.service.ParcelStatusService;
 import cs544.mum.edu.service.RiderService;
 import cs544.mum.edu.service.StoreService;
+import cs544.mum.edu.validator.PasswordValidator;
 import cs544.mum.edu.domain.Address;
 import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.ParcelStatus;
@@ -46,6 +47,9 @@ public class StoreController {
 	
 	@Autowired
 	RiderService riderService;
+	
+	@Autowired
+	PasswordValidator passwordValidator;
 	
 	@RequestMapping(value = {"/store"}, method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ROLE_STORE')")
@@ -100,6 +104,7 @@ public class StoreController {
 			BindingResult bindingResult) {
 		System.out.println("load page storeSignup ");
 		
+		passwordValidator.validate(store, bindingResult);
 		if(bindingResult.hasErrors()) {
 			return "storeSignup";
 		}
