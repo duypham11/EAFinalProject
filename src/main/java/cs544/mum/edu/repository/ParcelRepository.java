@@ -27,7 +27,7 @@ public interface ParcelRepository extends CrudRepository<Parcel, Long> {
 	@Query(value="SELECT * FROM Parcel WHERE store_id = ?1 ", nativeQuery = true)
 	public List<Parcel> listParcelsByStore(@Param("id") Long id);
 	
-	@Query(value="SELECT tracKNumber FROM Parcel order by trackingNO desc limit 1;", nativeQuery = true)
+	@Query(value="SELECT trackNumber FROM Parcel order by trackNumber desc limit 1;", nativeQuery = true)
 	public int getNextTrackNo();
 
 }

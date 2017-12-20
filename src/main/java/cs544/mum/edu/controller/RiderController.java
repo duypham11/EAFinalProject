@@ -160,7 +160,7 @@ public class RiderController {
 		ParcelStatus ps = parcelStatusService.findByStatus("DONE");
 		parcel.setStatus(ps);
 
-		parcelService.update(parcel);
+		parcelService.save(parcel);
 		//sendOutDeliveredNotifcation(parcel);
 		return "{\"sucess\":\"true\"}";
 	}
@@ -176,7 +176,7 @@ public class RiderController {
 		
 		parcel.setRider(riderService.getRider(riderId));
 		parcel.setStatus(ps);
-		parcelService.update(parcel);
+		parcelService.save(parcel);
 		return "{\"sucess\":\"true\"}";
 	}
 	

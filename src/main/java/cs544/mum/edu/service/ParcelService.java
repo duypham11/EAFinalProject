@@ -16,7 +16,7 @@ public interface ParcelService {
 	
 	List<Parcel> getParcelsByRiderAndStatus(Long riderId, Long statusId);
 	
-	void update(Parcel parcel);
+	//void update(Parcel parcel);
 	
 	List<Parcel> getParcelsByStoreId(Long id);
 	

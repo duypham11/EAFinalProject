@@ -42,6 +42,9 @@ public class StoreController {
 	ParcelService parcelService;
 	
 	@Autowired
+	ParcelStatusService parcelStatusService;
+	
+	@Autowired
 	RiderService riderService;
 	
 	@RequestMapping(value = {"/store"}, method = RequestMethod.GET)
@@ -137,8 +140,7 @@ public class StoreController {
 		
 		if(parcel.getStore().getEmail().equals(auth.getName())) {
 			try {
-				ParcelStatus status = new ParcelStatus();
-				status.setId(new Long(4));
+				ParcelStatus status = parcelStatusService.findByStatus("CANCELLED");
 				parcel.setStatus(status);
 				parcelService.save(parcel);
 				
