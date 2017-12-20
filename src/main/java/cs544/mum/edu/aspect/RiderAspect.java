@@ -20,7 +20,7 @@ import cs544.mum.edu.service.StoreService;
 @Component
 @Aspect
 @EnableAspectJAutoProxy
-public class RiderAdvice {
+public class RiderAspect {
 	@Autowired
 	EmailService emailService;
 	

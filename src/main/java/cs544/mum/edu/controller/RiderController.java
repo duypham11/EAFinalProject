@@ -88,9 +88,8 @@ public class RiderController {
 		rider.getUserCredentials().addRole(role);
 		rider.getUserCredentials().setUsername(rider.getEmail());
 		rider.getUserCredentials().setUID(userUID);
-		//rider.getUserCredentials().setEnabled(true);
+		rider.getUserCredentials().setEnabled(false);
 		riderService.createRider(rider);
-		rider.setFirstName("nhungjhgn");
 		riderService.saveRider(rider);
 		return "redirect:/rider/riderSuccess";
 	}

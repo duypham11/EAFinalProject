@@ -12,7 +12,6 @@ public class Address implements Serializable{
 	String zipCode;
 	String state;
 
-	//List<String> phoneNumberList = new ArrayList<String>();
 	String phone;
 	
 	public Address() {}

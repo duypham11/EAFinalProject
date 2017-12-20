@@ -65,7 +65,7 @@
 	<div id="page-wrapper">
 		<div class="row">
 	    		<div class="col-lg-12">
-	    			<h1 class="page-header">${RiderName}               ${NumberRate} - ${RiderRate} <p class="fa fa-cab"> </p></h1>
+	    			<h1 class="page-header">${RiderName}               #${RiderRate}/${NumberRate}# <p class="fa fa-cab"> </p></h1>
 	    		</div>
 	    </div>
 	    <div class="row">

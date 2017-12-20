@@ -17,7 +17,6 @@ public interface RiderRepository extends CrudRepository <Rider, Long> {
 	
 	@Query(value = "SELECT * FROM Rider WHERE username = ?1", nativeQuery = true)
 	public Rider findRiderByUsername(String userName);
-	//public List<Parcel> getParcelList();
 	
 	@Query(value= "SELECT r.* FROM Rider r \n" + 
 			"WHERE r.rider_id NOT IN (\n" + 
