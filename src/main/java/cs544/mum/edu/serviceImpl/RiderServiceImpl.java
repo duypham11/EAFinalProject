@@ -22,7 +22,7 @@ public class RiderServiceImpl implements RiderService{
 	
 	@Override
 	public void createRider(Rider rider) {
-		rider.getUserCredentials().setEnabled(true);
+		//rider.getUserCredentials().setEnabled(true);
 		usernameRepository.save(rider.getUserCredentials());
 		riderRepository.save(rider);
 	}

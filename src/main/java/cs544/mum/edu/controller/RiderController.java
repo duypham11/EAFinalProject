@@ -88,7 +88,7 @@ public class RiderController {
 		rider.getUserCredentials().addRole(role);
 		rider.getUserCredentials().setUsername(rider.getEmail());
 		rider.getUserCredentials().setUID(userUID);
-		rider.getUserCredentials().setEnabled(true);
+		//rider.getUserCredentials().setEnabled(true);
 		riderService.createRider(rider);
 		rider.setFirstName("nhungjhgn");
 		riderService.saveRider(rider);
@@ -128,7 +128,9 @@ public class RiderController {
         Rider rider = riderService.findRiderByUserName(username);
         model.addAttribute("RiderName", rider.getFirstName() + " " + rider.getLastName());
         model.addAttribute("RiderID", rider.getRider_Id());
-        
+        model.addAttribute("RiderRate", rider.getRate());
+        model.addAttribute("NumberRate", rider.getRateObj().getCount());
+
 		List<Parcel> parcelList = rider.getNotDoneParcelList();
 		model.addAttribute("notDoneParcelList", parcelList);
 		

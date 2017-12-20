@@ -32,7 +32,7 @@ public class RiderAdvice {
 	public void sendEmailNotify(JoinPoint jp) {
 		Object[] args = jp.getArgs();
 		Parcel parcel = (Parcel) args[0];
-		if (parcel.getStatus().getStatus().equals("DONE")) {
+		if (parcel.getStatus() !=null && parcel.getStatus().getStatus().equals("DONE")) {
 			sendOutDeliveredNotifcation(parcel);
 			System.out.println("===========sendEmailNotify=================");
 		}

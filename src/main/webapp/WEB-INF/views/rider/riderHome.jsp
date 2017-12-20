@@ -23,6 +23,10 @@
  </var>
   <var="riderName" items="${RiderName}">
  </var>
+  <var="rider_rate" items="${RiderRate}">
+ </var>
+  <var="number_Rate" items="${NumberRate}">
+ </var>
 	<div id="wrapper">
 		<!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -57,31 +61,11 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
-<!--             <div class="navbar-default sidebar" role="navigation"> -->
-<!--                 <div class="sidebar-nav navbar-collapse"> -->
-<!--                 		<div class="panel-body"> -->
-<%--                 			<img class="img-circle" alt="Rider photo" src="${pageContext.request.contextPath}/resources/images/${rider.photoURL}.png" width="100"/> --%>
-<%-- 	                		<h3>${rider.firstName}</h3> --%>
-                		</div>
-<!--                     <ul class="nav" id="side-menu"> -->
-                        
-<!--                         <li> -->
-<!--                             <a href="index.html"><i class="fa fa-plus-circle fa-fw"></i> New Request</a> -->
-<!--                         </li> -->
-<!--                         <li> -->
-<!--                             <a href="index.html"><i class="fa fa-list-ul fa-fw"></i> Request List</a> -->
-<!--                         </li> -->
-<!--                     </ul> -->
-<!--                 </div> -->
-<!--                 /.sidebar-collapse -->
-<!--             </div> -->
-            <!-- /.navbar-static-side -->
         </nav>
 	<div id="page-wrapper">
 		<div class="row">
 	    		<div class="col-lg-12">
-	    			<h1 class="page-header">${RiderName} <p class="fa fa-cab"> </p></h1>
+	    			<h1 class="page-header">${RiderName}               ${NumberRate} - ${RiderRate} <p class="fa fa-cab"> </p></h1>
 	    		</div>
 	    </div>
 	    <div class="row">
