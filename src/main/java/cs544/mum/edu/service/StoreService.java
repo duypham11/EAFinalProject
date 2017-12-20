@@ -9,7 +9,6 @@ public interface StoreService {
 
 	public void save(Store store);
     	public void saveFull( Store store);  		
-
 	public List<Store> findAll();
  	public Store findOne(Long id);
  	public Store findByUsername(String username);

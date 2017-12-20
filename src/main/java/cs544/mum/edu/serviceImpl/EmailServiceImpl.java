@@ -13,8 +13,10 @@ import cs544.mum.edu.service.EmailService;
 public class EmailServiceImpl implements EmailService {
 	@Autowired
 	JavaMailSender sender;
+	
 	@Autowired
 	EmailRepsitory emailRepository;
+	
 	@Override
 	@PreAuthorize("hasRole('ROLE_STORE') or hasRole('ROLE_ADMIN')")
 	public void sendEmail(SimpleMailMessage email) {

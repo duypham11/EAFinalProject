@@ -48,11 +48,6 @@ public class ParcelServiceImpl implements ParcelService {
 		return parcelRepository.listParcelsByRiderAndStatus(riderId, statusId);
 	}
 
-//	@Override
-//	public void update(Parcel order) {
-//		parcelRepository.save(order);
-//	}
-
 	@Override
 	public Parcel findByTrackNumber(String trackNumber) {
 		return parcelRepository.parcelByTrackNumber(trackNumber);
@@ -71,13 +66,6 @@ public class ParcelServiceImpl implements ParcelService {
 	@Override
 	public List<Parcel> findParcelByParcelStatus(String status) {
 		return parcelRepository.findParcelByParcelStatus(status);
-/*		List<Parcel> result = new ArrayList<Parcel>();
-		for (Iterator<Parcel> iterParcel = parcelRepository.findAll().iterator(); iterParcel.hasNext();) {
-			Parcel p = iterParcel.next();
-			if (p.getStatus().getStatus().equals(status))
-				result.add(p);
-		}
-		return result;*/
 	}
 	
 	//alternative to AOP
@@ -97,5 +85,4 @@ public class ParcelServiceImpl implements ParcelService {
 		
 		parcelHistoryService.save(ph);
 	}
-	
 }

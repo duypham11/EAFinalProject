@@ -14,8 +14,8 @@
 				<div class="panel-body">
 					<form class="form-horizontal">
 						<fieldset>
-							<legend>Order Cancelled</legend>
-							<p>Your order has been cancelled</p>
+							<legend>Request Cancelled</legend>
+							<p>Your request has been cancelled</p>
 						</fieldset>
 					</form>
 					<div class="col-lg-12 text-center">

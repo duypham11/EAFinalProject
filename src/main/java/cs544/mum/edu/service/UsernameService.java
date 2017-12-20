@@ -6,6 +6,4 @@ public interface UsernameService {
  	public Username findByUsername(String username);
  	public Username disableOrEnable(Username username);
  	public int enableUser(String username);
- 	
- 
 }
