@@ -1,12 +1,10 @@
-package cs544.mum.edu.controller;
+package cs544.mum.edu.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
-
-import cs544.mum.edu.exception.ParcelNotFoundException;
 
 @ControllerAdvice
 public class RiderExceptionHandler {

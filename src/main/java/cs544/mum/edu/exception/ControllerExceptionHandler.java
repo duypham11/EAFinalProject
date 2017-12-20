@@ -1,4 +1,4 @@
-package cs544.mum.edu.controller;
+package cs544.mum.edu.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
