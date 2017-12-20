@@ -40,7 +40,7 @@ public class AdminAspect {
 		approvalEmail.setTo(username);
 		approvalEmail.setSubject("Signup Approval");
 		approvalEmail.setText("Hello "+username+", your signup request has been approved");
-		emailService.sendEmail(approvalEmail);
+		//emailService.sendEmail(approvalEmail);
 	}
 
 }
