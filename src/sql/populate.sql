@@ -6,7 +6,8 @@ INSERT INTO Username(username,UID,password,enabled) VALUES ('ndstore@gmail.com',
 INSERT INTO Username(username,UID,password,enabled) VALUES ('ndrider@gmail.com','c298d333-2151-4668-ba49-1d8b74c76f1s','ndrider123', FALSE);
 INSERT INTO Username(username,UID,password,enabled) VALUES ('admin@gmail.com','f98ab14d-cf9a-48a7-a8c7-6b4b9bc3b2fd','admin123', TRUE);
 INSERT INTO Username(username,UID,password,enabled) VALUES ('rider@gmail.com','7ad8f775-665e-4af2-a5ca-b36066f36bb6','rider123', TRUE);
-INSERT INTO Username(username,UID,password,enabled) VALUES ('duynp@gmail.com','7ad8f775-665e-4af2-a5ca-b36066f36bb6','1234', TRUE);
+INSERT INTO Username(username,UID,password,enabled) VALUES ('duynp@gmail.com','6bdb7db7-0c71-4d5e-a0f4-75de6bac206f','1234', TRUE);
+
 
 -- to insert some data into Role table
 INSERT INTO Role (username, role) VALUES ('store@gmail.com', 'ROLE_STORE');
@@ -22,22 +23,19 @@ INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUE
 INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate,address,state,phone) VALUES ('ndrider@gmail.com','Nirav','Rider', '7ad8f775-665e-4af2-a5ca-b36066f36b7y', 'ndrider@gmail.com',0,0,'address','iowa','1');
 INSERT INTO  Store (name,firstname, lastname,username,note,email,address,phone) VALUES ('Panda Chinese Food','Sam','Khlok','store@gmail.com', 'great store', 'store@gmail.com','address 1 2 3','1012212122');
 INSERT INTO  Store (name,firstname, lastname,username,note,email,address,phone) VALUES ('Indian National Bank','Nirav','Dhinoja','ndstore@gmail.com', 'Indian Bank', 'ndstore@gmail.com','Iowa','345468321378');
-INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUES ('duynp@gmail.com','Duy','Pham', 'duynp@gmail.com', 'duynp@gmail.com',0,0);
+INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUES ('duynp@gmail.com','Dung','Nguyen', '6bdb7db7-0c71-4d5e-a0f4-75de6bac206f', 'duynp@gmail.com',0,0);
 
 INSERT INTO ParcelStatus (status) VALUES ('NEW');
 INSERT INTO ParcelStatus (status) VALUES ('RIDING');
 INSERT INTO ParcelStatus (status) VALUES ('DONE');
 INSERT INTO ParcelStatus (status) VALUES ('CANCELLED');
 
-<<<<<<< HEAD
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('304 W.Hempstead Avenue Fairfield, IA', 'Josh Stark', "123456", 1, 1, 1,'khlok.samphors@gmail.com');
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('1000 N Street Fairfield, IA', 'Martin King', "654321", 1, 3, 2,'khlok.samphors@gmail.com');
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('123 E 25th Street Mt Plesant, IA', 'Bob Brother', "87659", 1, 3, 3,'dp12@gmail.com');
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('98W Main Street FairField, IA', 'Mike', "2387659", 1, 1, 1,'normal@mail.com');
-=======
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('304 W.Hempstead Avenue Fairfield, IA', 'Josh Stark', "123456", 1, 1, 1,'store@gmail.com');
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('1000 N Street Fairfield, IA', 'Martin King', "654321", 1, 1, 1,'khlok.samphors@gmail.com');
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('123 E 25th Street Mt Plesant, IA', 'Bob Brother', "87659", 1, 1, 3,'dp12@gmail.com');
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('98W Main Street FairField, IA', 'Mike', "2387659", 1, 1, 1,'normal@gmail.com');
->>>>>>> 673bbf8a83fbb8e5f242e7451b87f02117454021
-INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('123 E Green Blv Ottumwa, IA', 'Baraba', "8765945", 1, 1, 1,'hunter@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('304 W.Hempstead Avenue Fairfield, IA', 'Josh Stark', "12456", 1, 1, 1,'khlok.samphors@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('1000 N Street Fairfield, IA', 'Martin King', "7654321", 1, 3, 2,'khlok.samphors@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('123 E 25th Street Mt Plesant, IA', 'Bob Brother 2', "87659", 1, 1, 2,'dp12@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('98W Main Street FairField, IA', 'Mike', "238767559", 1, 1, 1,'normal@mail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('304 W.Hempstead Avenue Fairfield, IA', 'Josh Stark 3', "123456", 1, 1, 1,'store@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('1000 N Street Fairfield, IA', 'Martin King V', "654321", 1, 1, 1,'khlok.samphors@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('123 E 25th Street Mt Plesant, IA', 'Bob Brother', "8732659", 1, 1, 2,'dp12@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('98W Main Street FairField, IA', 'Mike JA', "2387659", 1, 1, 1,'normal@gmail.com');
+INSERT INTO Parcel (address, customerName, trackNumber, store_id, rider_id, status_id,email) VALUES ('123 E Green Blv Ottumwa, IA', 'Baraba Bobb', "8765945", 1, 1, 1,'hunter@gmail.com');
