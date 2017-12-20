@@ -2,8 +2,8 @@
 -- to insert data to username table
 
 INSERT INTO Username(username,UID,password,enabled) VALUES ('store@gmail.com','c298d333-2151-4668-ba49-1d8b74c76fea','store123', TRUE);
-INSERT INTO Username(username,UID,password,enabled) VALUES ('ndstore@gmail.com','c298d333-2151-4668-ba49-1d8b74c76f1s','nd123', FALSE);
-INSERT INTO Username(username,UID,password,enabled) VALUES ('ndrider@gmail.com','c298d333-2151-4668-ba49-1d8b74c76f1s','ndrider123', FALSE);
+INSERT INTO Username(username,UID,password,enabled) VALUES ('nirav.dhinoja@gmail.com','c298d333-2151-4668-ba49-1d8b74c76f1s','nd123', FALSE);
+INSERT INTO Username(username,UID,password,enabled) VALUES ('dev.nirav.dhinoja@gmail.com','c298d333-2151-4668-ba49-1d8b74c76f1s','ndrider123', FALSE);
 INSERT INTO Username(username,UID,password,enabled) VALUES ('admin@gmail.com','f98ab14d-cf9a-48a7-a8c7-6b4b9bc3b2fd','admin123', TRUE);
 INSERT INTO Username(username,UID,password,enabled) VALUES ('rider@gmail.com','7ad8f775-665e-4af2-a5ca-b36066f36bb6','rider123', TRUE);
 INSERT INTO Username(username,UID,password,enabled) VALUES ('duynp@gmail.com','6bdb7db7-0c71-4d5e-a0f4-75de6bac206f','1234', TRUE);
@@ -11,18 +11,18 @@ INSERT INTO Username(username,UID,password,enabled) VALUES ('duynp@gmail.com','6
 
 -- to insert some data into Role table
 INSERT INTO Role (username, role) VALUES ('store@gmail.com', 'ROLE_STORE');
-INSERT INTO Role (username, role) VALUES ('ndstore@gmail.com', 'ROLE_STORE');
+INSERT INTO Role (username, role) VALUES ('nirav.dhinoja@gmail.com', 'ROLE_STORE');
 INSERT INTO Role (username, role) VALUES ('admin@gmail.com', 'ROLE_ADMIN');
 INSERT INTO Role (username, role) VALUES ('rider@gmail.com', 'ROLE_RIDER');
-INSERT INTO Role (username, role) VALUES ('ndrider@gmail.com', 'ROLE_RIDER');
+INSERT INTO Role (username, role) VALUES ('dev.nirav.dhinoja@gmail.com', 'ROLE_RIDER');
 INSERT INTO Role (username, role) VALUES ('duynp@gmail.com', 'ROLE_RIDER');
 
 -- to insert data for profile of users at different tables
 INSERT INTO  Admin (firstname, lastname,title,username) VALUES ('Khlok','Sam','Mr.', 'admin@gmail.com');
 INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUES ('rider@gmail.com','Camen','Rider', '7ad8f775-665e-4af2-a5ca-b36066f36bb6', 'rider@gmail.com',0,0);
-INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate,address,state,phone) VALUES ('ndrider@gmail.com','Nirav','Rider', '7ad8f775-665e-4af2-a5ca-b36066f36b7y', 'ndrider@gmail.com',0,0,'address','iowa','1');
+INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate,address,state,phone) VALUES ('dev.nirav.dhinoja@gmail.com','Nirav','Rider', '7ad8f775-665e-4af2-a5ca-b36066f36b7y', 'dev.nirav.dhinoja@gmail.com',0,0,'address','iowa','1');
 INSERT INTO  Store (name,firstname, lastname,username,note,email,address,phone) VALUES ('Panda Chinese Food','Sam','Khlok','store@gmail.com', 'great store', 'store@gmail.com','address 1 2 3','1012212122');
-INSERT INTO  Store (name,firstname, lastname,username,note,email,address,phone) VALUES ('Indian National Bank','Nirav','Dhinoja','ndstore@gmail.com', 'Indian Bank', 'ndstore@gmail.com','Iowa','345468321378');
+INSERT INTO  Store (name,firstname, lastname,username,note,email,address,phone) VALUES ('Indian National Bank','Nirav','Dhinoja','nirav.dhinoja@gmail.com', 'Indian Bank', 'nirav.dhinoja@gmail.com','Iowa','345468321378');
 INSERT INTO  Rider (email,firstname,lastname,photoURL,username,count,rate) VALUES ('duynp@gmail.com','Dung','Nguyen', '6bdb7db7-0c71-4d5e-a0f4-75de6bac206f', 'duynp@gmail.com',0,0);
 
 INSERT INTO ParcelStatus (status) VALUES ('NEW');

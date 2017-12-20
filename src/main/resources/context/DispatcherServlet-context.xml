@@ -15,7 +15,7 @@
 
 	<context:component-scan base-package="cs544.mum.edu" />
 	<mvc:annotation-driven />
-
+<context:property-placeholder location="classpath:email.properties" />
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
@@ -32,11 +32,11 @@
 	<mvc:resources mapping="/images/**" location="/images/" />  
 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.gmail.com" />
-		<property name="port" value="587" />
-		<property name="username" value="xizongfei521@gmail.com" />
-		<property name="password" value="mum2017mum" />
-		<property name="defaultEncoding" value="UTF-8" />
+		<property name="host" value="${email.host}" />
+		<property name="port" value="${email.port}" />
+		<property name="username" value="${email.username}" />
+		<property name="password" value="${email.password}" />
+		<property name="defaultEncoding" value="${email.defaultEncoding}" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smtp.auth">true</prop>

@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">TaoBao Admin System </a>
+                <a class="navbar-brand" href="index.html">FlashDelievery Admin Panel </a>
             </div>
             <!-- /.navbar-header -->
 
@@ -80,7 +80,7 @@
                     <!-- /.dropdown-messages -->
                 </li>
 			 <!-- /.dropdown -->
-                <li class="dropdown">
+           <!--      <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
@@ -137,18 +137,14 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
+                    /.dropdown-alerts
+                </li> -->
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
                         <li class="divider"></li>
                         <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
@@ -162,7 +158,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                       <!--  <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -171,10 +167,10 @@
                                 </button>
                             </span>
                             </div>
-                            <!-- /input-group -->
-                        </li>
+                            /input-group
+                        </li> -->
                         <li>
-                            <a href="<spring:url value='/admin1'/>"><i class="fa fa-dashboard fa-fw"></i><spring:message code="home.sidebar.Dashboard.home"/></a>
+                            <a href="<spring:url value='/admin'/>"><i class="fa fa-dashboard fa-fw"></i><spring:message code="home.sidebar.Dashboard.home"/></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> </i><spring:message code="home.sidebar.Dashboard.manageCategory"/><span class="fa arrow"></span></a>
@@ -188,10 +184,10 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                      <%--   <li>
                             <a href="<spring:url value='/sendmailForm'/>"><i class="fa fa-bar-chart-o fa-fw"></i></i><spring:message code="home.sidebar.Dashboard.email"/></a>
                         </li>
-
+ --%>
 
 
                     </ul>

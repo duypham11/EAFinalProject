@@ -1,29 +1,25 @@
-package cs544.mum.edu.controller;
+package cs544.mum.edu.rest;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.fasterxml.jackson.core.type.TypeReference;
+import org.springframework.web.bind.annotation.RestController;
 
 import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.ParcelHistory;
 import cs544.mum.edu.model.CommonResponseDTO;
-import cs544.mum.edu.model.StoreDTO;
 import cs544.mum.edu.model.TrackParcelDTO;
 import cs544.mum.edu.service.ParcelHistoryService;
 import cs544.mum.edu.service.ParcelService;
 import cs544.mum.edu.service.UsernameService;
-import cs544.mum.edu.util.CALConnector;
-import cs544.mum.edu.util.JsonUtils;
-@Controller
-public class CustomerController {
+@RestController
+@RequestMapping(value = "/customer_rest")
+public class CustomerRest {
 
 	
 	@Autowired
@@ -36,19 +32,11 @@ public class CustomerController {
 	ParcelHistoryService parcelHistoryService;
 	
 	@RequestMapping(value = "/trackParcel", method = RequestMethod.GET)
-	public String approveRider(@RequestParam("tracknumber") String tracknumber,Model model) {	
-		String calAPI = "http://localhost:8080/FlashDelivery/";
-		String inputData = JsonUtils.getJsonFromObject(tracknumber);
-		String finalOutput = CALConnector.callRest(calAPI+"customer_rest/trackParcel?tracknumber="+tracknumber,RequestMethod.GET,null, null);
-		CommonResponseDTO commonResponseDTO = JsonUtils.getObjectFromJson(finalOutput,CommonResponseDTO.class);
-		String commonResp = JsonUtils.getJsonFromObject(commonResponseDTO.getResponseObject());
+	public CommonResponseDTO approveRider(@RequestParam("tracknumber") String tracknumber,Model model) {
+		CommonResponseDTO commonResponse = new CommonResponseDTO();
+		try {
+		Parcel parcel = parcelService.findByTrackNumber(tracknumber);
 		TrackParcelDTO trackParcelDTO =null;
-		if(commonResponseDTO.getResponseCode()==1.0) {
-//		commonResp	= "{"trackingNumber":"123456","customerName":"Josh Stark 3","delieveryAddress":"304 W.Hempstead Avenue Fairfield, IA, null, null","delieveryStatus":"NEW","historyLog":[]}";
-//			trackParcelDTO = JsonUtils.getObjectFromJson(commonResp, TrackParcelDTO.class);
-			trackParcelDTO = JsonUtils.getObjectFromJson(commonResp, TrackParcelDTO.class);
-			}
-/*		Parcel parcel = parcelService.findByTrackNumber(tracknumber);
 		if(parcel != null)
 		trackParcelDTO = new TrackParcelDTO(parcel.getTrackNumber(),parcel.getCustomerName(),parcel.getAddressAsString(),parcel.getStatus().getStatus());
 		List<ParcelHistory> listOfParcelHistory = parcelHistoryService.parcelHistoryByTrackNumber(tracknumber);
@@ -58,9 +46,17 @@ public class CustomerController {
 			listOfParcelLog.add(log);
 		}
 		
-		trackParcelDTO.setHistoryLog(listOfParcelLog);*/
-		model.addAttribute("trackedParcel",trackParcelDTO);
-		return "trackorder";
+		trackParcelDTO.setHistoryLog(listOfParcelLog);
+		commonResponse.setResponseCode(1);
+		commonResponse.setResponseMessage("success");
+		commonResponse.setResponseObject(trackParcelDTO);
+		}
+		catch(Exception e) {
+			commonResponse.setResponseCode(-1);
+			commonResponse.setResponseMessage(e.getMessage());
+			e.printStackTrace();
+		}
+		return commonResponse;
 	}
 	
 	@RequestMapping(value = "/mockHistory", method = RequestMethod.GET)

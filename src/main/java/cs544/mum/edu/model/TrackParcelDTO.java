@@ -9,12 +9,17 @@ public class TrackParcelDTO implements Serializable {
 	private String customerName;
 	private String delieveryAddress;
 	private String delieveryStatus;
-	private List<String> historyLog;
+	private List<String> historyLog ;
 	
 	
 	
 	
 	
+	public TrackParcelDTO() {
+		super();
+	}
+
+
 	public TrackParcelDTO(String trackingNumber, String customerName, String delieveryAddress,
 			String delieveryStatus) {
 		this.trackingNumber = trackingNumber;
