@@ -59,13 +59,13 @@ public class StoreController {
         Store store = storeService.findByUsername(username);
         List<Parcel> list = parcelService.getParcelsByStoreId(store.getId());
         model.addAttribute("parcels", list );
-		return "store";
+		return "/store/store";
 	}
 	
 	@RequestMapping(value = {"/storeRequestRider"}, method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ROLE_STORE')")
 	public String storeOrderDelivery(Locale locale, Model model) {	
-		return "storeRequestRider";
+		return "/store/storeRequestRider";
 	}
 	
 	@RequestMapping(value="/storeProfile", method = RequestMethod.GET, produces = "application/json")
@@ -96,7 +96,7 @@ public class StoreController {
 	
 	@RequestMapping(value="/storeSignup", method = RequestMethod.GET)
 	public String signupStore(@ModelAttribute("store") Store store) {
- 		return "storeSignup";
+ 		return "/store/storeSignup";
 	}
 	
 	@RequestMapping(value="/storeSignup", method = RequestMethod.POST)
@@ -106,7 +106,7 @@ public class StoreController {
 		
 		passwordValidator.validate(store, bindingResult);
 		if(bindingResult.hasErrors()) {
-			return "storeSignup";
+			return "/store/storeSignup";
 		}
 		
 		//use email as user name
@@ -132,7 +132,7 @@ public class StoreController {
 	
 	@RequestMapping(value="/storeSignupThank", method = RequestMethod.GET)
 	public String signupThank(Model model) {
- 		return "storeSignupThank";
+ 		return "/store/storeSignupThank";
 	}
 	
 	@RequestMapping(value="/cancelRiderRequest/{id}", method = RequestMethod.GET, produces = "application/json")
