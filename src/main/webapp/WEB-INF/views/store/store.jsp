@@ -18,6 +18,8 @@
                          <th>ZipCode</th>
                          <th>Phone</th>
 						<th>Status</th>
+						<th>Rider Name</th>
+						<th>Rider Rate</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -30,6 +32,8 @@
 							<td>${parcel.address.zipCode}</td>
 	                         <td>${parcel.address.phone}</td>
 							<td>${parcel.status.status}</td>
+							<td>${parcel.rider.getFirstName()}</td>
+							<td>${parcel.rider.getRate()}</td>
 							<td class="text-center">
 								<c:if test="${parcel.status.status == 'NEW'}">
 									<button class="btn btn-primary btn-outline"
