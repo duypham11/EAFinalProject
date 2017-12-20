@@ -24,13 +24,13 @@ public class Store implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
  	private Long id;
 	
-	@Size(min = 2, max = 100, message= "{Size.name.validation}")
+	@Size(min = 2, max = 100)
 	private String name;
 	
-	@Size(min = 2, max = 50, message = "{Size.firstName.validation}")
+	@Size(min = 2, max = 50)
 	private String firstName;
 	
-	@Size(min = 2, max = 50, message = "{Size.lastName.validation}")
+	@Size(min = 2, max = 50)
 	private String lastName;
  	
 

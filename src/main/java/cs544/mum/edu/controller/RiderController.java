@@ -47,9 +47,6 @@ public class RiderController {
 	PasswordValidator passwordValidator;
 	
 	@Autowired
-	StoreService storeService;
-	
-	@Autowired
 	ServletContext servletContext;
 	
 	@Autowired
@@ -60,9 +57,6 @@ public class RiderController {
 	
 	@Autowired
 	ParcelStatusService parcelStatusService;
-	
-	@Autowired
-	EmailService emailService;
 	
 	@RequestMapping(value="/rider/{id}", method = RequestMethod.GET)
 	public ModelAndView homePage(@PathVariable("id") long id) {		
@@ -161,7 +155,6 @@ public class RiderController {
 		parcel.setStatus(ps);
 
 		parcelService.save(parcel);
-		//sendOutDeliveredNotifcation(parcel);
 		return "{\"sucess\":\"true\"}";
 	}
 	
@@ -180,35 +173,5 @@ public class RiderController {
 		return "{\"sucess\":\"true\"}";
 	}
 	
-	public void sendOutDeliveredNotifcation(Parcel parcel) {
-		
-		//one copy to customer 
-		SimpleMailMessage emailToCust = new SimpleMailMessage();
-		
-		emailToCust.setTo(parcel.getEmail());
-		emailToCust.setSubject("Your Parcel has been delivered, tracking number: " + parcel.getTrackNumber());
-		emailToCust.setText("Your Parcel has been delivered, tracking number: " + parcel.getTrackNumber());
-		emailService.sendEmail(emailToCust);
-		
-		//one copy for rider
-		SimpleMailMessage emailToRider = new SimpleMailMessage();
-		
-		emailToRider.setTo(parcel.getRider().getEmail());
-		emailToRider.setSubject("Deliver successfully: " + parcel.getTrackNumber());
-		emailToRider.setText("Your task is for customer " + parcel.getCustomerName() + " done. Thank you!");
-		emailService.sendEmail(emailToRider);
-		
-		//one copy for store owner
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-		Store res =	 storeService.findByUsername(username);
-		
-		SimpleMailMessage emailToStore = new SimpleMailMessage();
-		System.out.println("store email " + res.getEmail());
-		
-		emailToStore.setTo(res.getEmail());
-		emailToStore.setSubject("A rider has delivered the parcel: " + parcel.getTrackNumber());
-		emailToStore.setText("The rider has delivered the parcel to " + parcel.getRider().getFirstName() + " with tracking number: " + parcel.getTrackNumber());
-		emailService.sendEmail(emailToStore);
-	}
+	
 }

@@ -1,4 +1,4 @@
-package cs544.mum.edu.controller;
+package cs544.mum.edu.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,11 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
-	public static final String DEFAULT_ERROR_VIEW = "error";
+	public static final String DEFAULT_ERROR_VIEW = "/error/error";
 
 	@ExceptionHandler(value = AccessDeniedException.class)
 	public String accessDenied() {
-		return  "forbidden" ;
+		return  "/error/forbidden" ;
 	}
 
 	@ExceptionHandler(value = Exception.class)

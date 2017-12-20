@@ -14,7 +14,6 @@ public interface RiderService {
 	void updateRider(Rider rider);
 	void saveRider(Rider rider);
 	void updateRate(int rate, Rider rider);
-	
 	void deleteRider(long id);
 	void deleteRider(Rider rider);
 	Iterable<Rider> findRiderByPhone(String phoneNumber);
@@ -22,7 +21,6 @@ public interface RiderService {
 	Iterable<Rider> findRiderByEmail(String email);
 	Iterable<Rider> findRiderByFirstName(String firstName);
 	Rider findRiderByUserName(String userName);
-
 	List<Rider> getAvailableRider();
 
 }

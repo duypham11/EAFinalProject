@@ -26,6 +26,7 @@ import cs544.mum.edu.service.ParcelService;
 import cs544.mum.edu.service.ParcelStatusService;
 import cs544.mum.edu.service.RiderService;
 import cs544.mum.edu.service.StoreService;
+import cs544.mum.edu.validator.PasswordValidator;
 import cs544.mum.edu.domain.Address;
 import cs544.mum.edu.domain.Parcel;
 import cs544.mum.edu.domain.ParcelStatus;
@@ -47,6 +48,9 @@ public class StoreController {
 	@Autowired
 	RiderService riderService;
 	
+	@Autowired
+	PasswordValidator passwordValidator;
+	
 	@RequestMapping(value = {"/store"}, method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ROLE_STORE')")
 	public String store(Model model) {	
@@ -55,13 +59,13 @@ public class StoreController {
         Store store = storeService.findByUsername(username);
         List<Parcel> list = parcelService.getParcelsByStoreId(store.getId());
         model.addAttribute("parcels", list );
-		return "store";
+		return "/store/store";
 	}
 	
 	@RequestMapping(value = {"/storeRequestRider"}, method = RequestMethod.GET)
 	@PreAuthorize("hasRole('ROLE_STORE')")
 	public String storeOrderDelivery(Locale locale, Model model) {	
-		return "storeRequestRider";
+		return "/store/storeRequestRider";
 	}
 	
 	@RequestMapping(value="/storeProfile", method = RequestMethod.GET, produces = "application/json")
@@ -92,7 +96,7 @@ public class StoreController {
 	
 	@RequestMapping(value="/storeSignup", method = RequestMethod.GET)
 	public String signupStore(@ModelAttribute("store") Store store) {
- 		return "storeSignup";
+ 		return "/store/storeSignup";
 	}
 	
 	@RequestMapping(value="/storeSignup", method = RequestMethod.POST)
@@ -100,8 +104,9 @@ public class StoreController {
 			BindingResult bindingResult) {
 		System.out.println("load page storeSignup ");
 		
+		passwordValidator.validate(store, bindingResult);
 		if(bindingResult.hasErrors()) {
-			return "storeSignup";
+			return "/store/storeSignup";
 		}
 		
 		//use email as user name
@@ -127,7 +132,7 @@ public class StoreController {
 	
 	@RequestMapping(value="/storeSignupThank", method = RequestMethod.GET)
 	public String signupThank(Model model) {
- 		return "storeSignupThank";
+ 		return "/store/storeSignupThank";
 	}
 	
 	@RequestMapping(value="/cancelRiderRequest/{id}", method = RequestMethod.GET, produces = "application/json")

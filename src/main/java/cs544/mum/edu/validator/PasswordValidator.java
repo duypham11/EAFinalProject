@@ -6,6 +6,7 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import cs544.mum.edu.domain.Rider;
+import cs544.mum.edu.domain.Store;
 
 @Component
 public class PasswordValidator implements Validator {
@@ -21,10 +22,20 @@ public class PasswordValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userCredentials.password", "required.password", "");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userCredentials.verifyPassword", "required.verifyPassword", "");
 		
-		Rider rider = (Rider) target;
-		if (!(rider.getUserCredentials().getPassword().equals(rider.getUserCredentials().getVerifyPassword()))) {
-			errors.rejectValue("userCredentials.password", "notmatch.password");
+		if(target instanceof Rider) {
+			Rider rider = (Rider) target;
+			if (!(rider.getUserCredentials().getPassword().equals(rider.getUserCredentials().getVerifyPassword()))) {
+				errors.rejectValue("userCredentials.password", "notmatch.password");
+			}
 		}
+		
+		if(target instanceof Store) {
+			Store store = (Store) target;
+			if (!(store.getUserCredentials().getPassword().equals(store.getUserCredentials().getVerifyPassword()))) {
+				errors.rejectValue("userCredentials.password", "notmatch.password");
+			}
+		}
+		
 	}
 	
 

@@ -8,7 +8,5 @@ import cs544.mum.edu.domain.ParcelHistory;
 public interface ParcelHistoryService {
 	
 	ParcelHistory save(ParcelHistory parcel);
-	
-	
 	List<ParcelHistory> parcelHistoryByTrackNumber(String TrackNumber);
 }
